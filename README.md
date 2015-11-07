@@ -14,10 +14,12 @@ POSTGRESQL_PASSWORD=#{your_password}
 ```
 
 To run migrations use: <tt>rake db:migrate:reset</tt>
-
-To run migrations on production use: <tt>heroku pg:reset</tt>
+To run migrations on production use:
+```
+heroku pg:reset DATABASE_URL
+heroku run rake db:migrate
+```
 
 
 API:
-
-To create a User: <tt>POST http://localhost:3000/users?name=#{name}</tt> - respong will contain uuid
+To create a User: <tt>POST http://localhost:3000/users?name=#{name}</tt> - respond will contain uuid
