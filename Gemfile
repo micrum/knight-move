@@ -26,6 +26,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Ruby gem for automatically transforming JSX and using React in Rails.
 gem 'react-rails', '~> 1.4.0'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+
 
 # TEMPLATES AND RENDERING
 # Slim templates generator
@@ -50,8 +54,5 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
 end
 
