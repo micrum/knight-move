@@ -8,20 +8,24 @@ class Game < ActiveRecord::Base
 
 
   def self.top_scores
-    Game.joins(:user).order('score ASC, time DESC').limit(20)
+    Game.joins(:user).order('score DESC, time ASC').limit(20)
   end
 
 
-  def self.validate_time
+  def validate_time
     new_time = self.time
     old_time = changed_attributes[:time]
+
+    return true if old_time.nil?
 
     new_time > old_time
   end
 
 
-  def self.validate_steps
-    steps.each_with_index do |step, index|
+  def validate_steps
+    result = true
+
+    self.steps.each_with_index do |step, index|
       result = valid_next_step?(step, steps[index])
       break unless result
     end
@@ -31,6 +35,12 @@ class Game < ActiveRecord::Base
 
   def game_stats
     { steps: steps, time: time }
+  end
+
+
+  def position
+    uuids = Game.where('score >= ?', score).order('score DESC, time ASC').select('uuid')
+    uuids.index { |u| u.uuid == p.uuid }
   end
 
 

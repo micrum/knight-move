@@ -38,4 +38,6 @@ To get game by uuid: `GET http://localhost:3000/games?game_uuid=#{uuid}`
 
 To save game stats: `GET http://localhost:3000/games?game_uuid=#{uuid}&time=#{time}&steps=#{steps}`
 
+To retrieve position of current game: `GET http://localhost:3000/position?game_uuid=#{uuid}`
+
 To retrieve scoreboard(top20 games): `GET http://localhost:3000/scoreboard`
