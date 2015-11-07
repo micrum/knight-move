@@ -4,7 +4,7 @@ class CreateGames < ActiveRecord::Migration
       t.integer :score
       t.datetime :time
 
-      t.references :user, :index => true
+      t.references :user, index: true
 
       t.timestamps null: false
     end

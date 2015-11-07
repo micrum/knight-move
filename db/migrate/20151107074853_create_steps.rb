@@ -4,7 +4,7 @@ class CreateSteps < ActiveRecord::Migration
       t.integer :x_pos
       t.integer :y_pos
 
-      t.references :game, :index => true
+      t.references :game, index: true
 
       t.timestamps null: false
     end
