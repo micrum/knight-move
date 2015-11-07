@@ -37,6 +37,7 @@ var Board = React.createClass({
                     display: 'flex',
                     flexWrap: 'wrap'
                    }}>
+        <Rules></Rules>
         { squares }
       </div>
     );
