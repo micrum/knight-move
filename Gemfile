@@ -26,6 +26,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Ruby gem for automatically transforming JSX and using React in Rails.
 gem 'react-rails', '~> 1.4.0'
 
+
+# TEMPLATES AND RENDERING
+# Slim templates generator
+gem 'slim-rails'
+# Creating navigations (with multiple levels)
+gem 'simple-navigation'
+
+
 # Heroku staff
 gem 'rails_12factor', group: :production
 

@@ -1,0 +1,20 @@
+@import 'variables';
+@import 'fonts';
+
+
+// MIXINS
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+a {
+  @include transition(background-color .3s ease-in-out, color .3s ease-in-out);
+}
+
+
+// UTILS
+.text-center {
+  text-align: center;
+}
