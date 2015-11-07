@@ -38,9 +38,12 @@ class GamesController < ApplicationController
 
   def scoreboard
     top_games    = Game.top_scores
-    @top_results = top_games.map { |tg| { score:     tg.score,
-                                          time:      tg.time,
-                                          user_name: tg.user.name } }
+    @top_results = top_games.map { |tg| {
+      id:        tg.id,
+      score:     tg.score,
+      time:      tg.time,
+      user_name: tg.user.name }
+    }
     render json: { top_games: @top_results }
   end
 
