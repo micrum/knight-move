@@ -1,12 +1,14 @@
 body {
   color: $text-color;
   margin: 0;
+  background: url('bg.jpg');
+  background-size: cover;
 
   a {
     color: $link-color;
 
     &:hover {
-      color: $red;
+      color: $accent-color;
     }
   }
 }
@@ -78,7 +80,7 @@ body {
 .sidebar .nav > .active > a,
 .sidebar .nav > .active > a:hover,
 .sidebar .nav > .active > a:focus {
-  color: $red;
+  color: $accent-color;
   text-decoration: none;
 }
 
