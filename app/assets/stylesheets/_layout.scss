@@ -1,7 +1,7 @@
 body {
   color: $text-color;
   margin: 0;
-  background: url('bg.jpg');
+  background: asset-url('bg.jpg');
   background-size: cover;
 
   a {
