@@ -12,3 +12,10 @@
 !/log/.keep
 /tmp
 .keep
+
+# Ignore IDE files
+.idea
+
+# Ignore .env files
+.env.test
+.env.development
