@@ -19,9 +19,10 @@ ActiveRecord::Schema.define(version: 20151107074853) do
   create_table "games", force: :cascade do |t|
     t.integer  "score"
     t.datetime "time"
+    t.boolean  "is_finished"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "games", ["user_id"], name: "index_games_on_user_id", using: :btree
@@ -38,8 +39,11 @@ ActiveRecord::Schema.define(version: 20151107074853) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
+    t.uuid     "uuid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "users", ["uuid"], name: "index_users_on_uuid", using: :btree
 
 end

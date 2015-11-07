@@ -3,6 +3,7 @@ class CreateGames < ActiveRecord::Migration
     create_table :games do |t|
       t.integer :score
       t.datetime :time
+      t.boolean :is_finished
 
       t.references :user, index: true
 
