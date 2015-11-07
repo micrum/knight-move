@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   #get 'scores', to: 'pages#scores'
 
+  post 'games', to: 'games#create'
+  get 'games', to: 'games#show'
+  post 'save_steps', to: 'games#save_steps'
   get 'scoreboard', to: 'games#scoreboard'
 end
