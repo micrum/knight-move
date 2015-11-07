@@ -14,6 +14,11 @@ class User < ActiveRecord::Base
         end
       else
         user = User.find_by_uuid(auth_hash[:uuid])
+        user.uid = auth_hash[:uid]
+        user.name = auth_hash[:name]
+        user.email = auth_hash[:email]
+        user.email = auth_hash[:provider]
+        user.save
       end
       user
     end
