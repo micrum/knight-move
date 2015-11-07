@@ -6,7 +6,9 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    = render 'shared/sidebar'
+    = render 'shared/header'
     .site-wrapper
       .page-content
         = yield
+    .sidebar
+      = react_component('Scoreboard')

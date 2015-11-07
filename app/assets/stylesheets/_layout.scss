@@ -13,79 +13,47 @@ body {
   }
 }
 
-
-.site-wrapper {
-  display: table;
-  height: 100%;
-  min-height: 100%;
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   margin: auto;
-
-  @media (min-width: $small-screen) {
-    margin: 0 auto -60px;
-  }
+  height: 50px;
 }
 
 .page-content {
   margin: 80px 10px 0;
-  max-width: 1010px;
   padding-bottom: 50px;
 }
 
 
 // navigation
-.sidebar {
+.navbar {
   font-weight: 400;
   background:rgba(0, 0, 0, 0);
-  font-size: 20px;
-
-  .home-link {
-    font-weight: 700;
-    font-size: 1.5em;
-    color: $link-color;
-    text-decoration: none;
-    font-family: 'GlasoorFF4F', sans-serif;
-
-    &:hover {
-      color: $link-color;
-    }
-  }
-
-  .nav {
-    @media (max-width: $small-screen) {
-      margin-top: 10px;
-    }
-
-    margin-top: 90px;
-    padding: 0;
-  }
+  font-size: 24px;
+  margin: 20px 40px 0;
 }
 
-.nav > li {
-  list-style: none;
-  padding: 0 15px 15px 0;
-
-  @media (max-width: $small-screen) {
-    display: inline;
-  }
-
-  > a {
-    color: $link-color;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
-.sidebar .nav > .active > a,
-.sidebar .nav > .active > a:hover,
-.sidebar .nav > .active > a:focus {
-  color: $accent-color;
+.home-link {
+  font-weight: 700;
+  font-size: 1.5em;
+  color: $link-color;
   text-decoration: none;
+  font-family: 'GlasoorFF4F', sans-serif;
+
+  &:hover {
+    color: $link-color;
+  }
 }
 
-.navbar {
+
+.stub-image {
+  max-height: 560px;
+}
+
+
+.sidebar {
   position: fixed;
 
   @media (max-width: $small-screen) {
@@ -96,14 +64,14 @@ body {
   }
 
   @media (min-width: $small-screen) {
-    left: $sidebar-left-space;
-    top: 3%;
+    right: $sidebar-right-space;
+    top: 5%;
     width: $sidebar-width;
     max-width: 205px;
     min-width: 190px;
   }
 }
 
-.stub-image {
-  max-height: 560px;
+.site-wrapper {
+  height: 512px;
 }

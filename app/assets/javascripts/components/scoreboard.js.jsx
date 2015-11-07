@@ -61,7 +61,7 @@ var Scoreboard = React.createClass({
     return (
 
       <div>
-        <h1>Top scores</h1>
+        <h2>Top scores</h2>
 
         <div className="scoreboard">
           <ol>
