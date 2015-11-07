@@ -9,5 +9,4 @@ html
     = render 'shared/sidebar'
     .site-wrapper
       .page-content
-        = yield
-        = react_component('Knight') 
+        = react_component('Board', knightPosition: [0, 0])
