@@ -31,6 +31,7 @@ var Board = React.createClass({
     }
     return (
       <div style = {{ maxWidth: '512px', margin: '0 auto' }}>
+        <Rules></Rules>
         { squares }
       </div>
     );
