@@ -4,6 +4,7 @@ class CreateGames < ActiveRecord::Migration
       t.integer :score
       t.datetime :time
       t.boolean :is_finished
+      t.text :tags, array: true, default: []
 
       t.references :user, index: true
 

@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   def about
   end
 
-  def scores
-  end
+  # def scores
+  # end
 end
