@@ -1,2 +1,4 @@
-= image_tag 'knight-move-game.png'
-
+- if Rails.env == 'production'
+  = image_tag 'knight-move-game.png'
+- else
+  = react_component('Board', knightPosition: [0, 0])

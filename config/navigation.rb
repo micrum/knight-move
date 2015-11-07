@@ -7,9 +7,9 @@ SimpleNavigation::Configuration.run do |navigation|
 
   # Define the primary navigation
   navigation.items do |primary|
-    primary.dom_class = 'nav'
-    primary.item :top_scores, 'Top Scores', scores_path
-    primary.item :about, 'About', about_path
+    #primary.dom_class = 'nav'
+    #primary.item :top_scores, 'Top Scores', scoreboard_path
+    #primary.item :about, 'About', about_path
   end
 
 end
