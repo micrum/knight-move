@@ -19,7 +19,7 @@ To run migrations use: <tt>rake db:migrate:reset</tt>
 
 To run migrations on production use:
 ```
-heroku pg:reset DATABASE_URL
+heroku pg:reset DATABASE_URL --confirm tranquil-bayou-6575
 heroku run rake db:migrate
 ```
 
