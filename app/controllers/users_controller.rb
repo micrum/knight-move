@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :set_up_user, except: [:create, :external_auth]
+  before_filter :set_up_user, except: [:create]
 
 
   def create
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def external_auth
     @current_user = User.find_or_update_from_oauth(auth_hash.merge(uuid: @current_user.uuid))
 
-    render json: { uuid: @current_user.uuid }
+    redirect_to root_path
   end
 
 
