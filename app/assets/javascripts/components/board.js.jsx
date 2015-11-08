@@ -59,10 +59,10 @@ var Board = React.createClass({
     }
 
     return (
-      <div key={key} onClick={ this.handleSquareClick.bind(this, x, y) }
-           className={ pieceClass }>
-        { pieceMove }
-      </div>
+        <div key={key} onClick={ this.handleSquareClick.bind(this, x, y) }
+             className={ pieceClass }>
+            <span className="cellScore">{ pieceMove }</span>
+        </div>
     );
   },
 

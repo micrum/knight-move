@@ -48,6 +48,7 @@ header {
   .nav {
     @media (max-width: $small-screen-max) {
       display: inline-flex;
+      font-size: 16px;
     }
   }
 
@@ -59,15 +60,18 @@ header {
 .home-link {
   font-weight: 700;
   font-size: 1.7em;
-  color: $link-color;
+  color: $brand-color;
   text-decoration: none;
   font-family: 'GlasoorFF4F', sans-serif;
 
   &:hover {
-    color: $link-color;
+    color: $brand-color;
   }
 }
 
+.new-game-button {
+  vertical-align: sub;
+}
 
 .sidebar {
   position: fixed;

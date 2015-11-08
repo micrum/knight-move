@@ -1,10 +1,17 @@
 // NAME INPUT
-.name-input-container input {
-  background-color: $brand-dark;
-  border: none;
-  height: 30px;
-  color: $text-color;
+.name-input-container {
+  margin-bottom: 10px;
+
+  input {
+    background-color: $brand-dark;
+    border: none;
+    height: 30px;
+    color: $text-color;
+    width: 110px;
+    text-align: center;
+  }
 }
+
 
 // PROGRESS BAR CONTAINER
 .progress-bar-container {
@@ -156,10 +163,23 @@ a.facebook-share-button {
   background-color: $text-color;
   border-radius: 50%;
   font-size: 2em;
-
-  color: red;
-  line-height: 64px;
   text-align: center;
+  color: $additional-color;
+  line-height: 64px;
+
+  .cellScore {
+    @media (max-width: $x-small-screen) {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      right: 0;
+    }
+  }
+  @media (max-width: $x-small-screen) {
+    font-size: .8em;
+    position: relative;
+  }
 }
 
 .currentState {
@@ -174,15 +194,4 @@ a.facebook-share-button {
 
 .impossibleMove {
   opacity: .5;
-}
-
-a.new-game-button {
-  display: block;
-  padding: 10px;
-  font-size: 18px;
-  text-decoration: none;
-  background-color: #e50e73;
-  color: #fed428;
-  text-align: center;
-  cursor: pointer;
 }

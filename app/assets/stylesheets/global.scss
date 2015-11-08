@@ -22,3 +22,11 @@ html, body {
   font-size: 18px;
   font-style: normal;
 }
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-input-placeholder {color: $text-color; opacity: .8}
+::-moz-placeholder          {color: $text-color; opacity: .8}
+:-ms-input-placeholder      {color: $text-color; opacity: .8}

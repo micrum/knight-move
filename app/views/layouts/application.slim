@@ -15,13 +15,10 @@ html
             = link_to 'Knight Move', '/', class: 'home-link'
           .nav
             = react_component('Rules')
-            p.mr Log in:
-            = link_to (image_tag 'github_icon.svg', class: 'small-icon'), '/auth/github'
-            = link_to (image_tag 'facebook_icon.svg', class: 'small-icon'), '/auth/facebook'
-            p.mr Or type your name:
+            .mr
+              = link_to 'New Game', '/', class: 'new-game-button'
+            p.mr Type your name:
             = react_component('NameInput')
-            p
-            = link_to 'New Game', '/', class: 'new-game-button'
       .page-content#root
         = yield
       .sidebar.sidebar-right
