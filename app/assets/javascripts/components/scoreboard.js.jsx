@@ -51,7 +51,7 @@ var Scoreboard = React.createClass({
 
   render: function () {
     var scores = this.state.scores.map(function (s) {
-      return <Score score={s.score} time={s.time} user_name={s.user_name} ref={s.id}/>
+      return <Score score={s.score} time={s.time} user_name={s.user_name} key={s.id}/>
     });
 
     if (!scores.length) {
