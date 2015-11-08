@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   post 'users', to: 'users#create'
+  get 'users', to: 'users#show'
+  put 'users', to: 'users#update'
+
   get '/auth/:provider/callback', to: 'users#create'
 
   get 'about', to: 'pages#about'

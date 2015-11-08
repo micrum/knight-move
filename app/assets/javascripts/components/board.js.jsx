@@ -88,6 +88,7 @@ var Board = React.createClass({
 
     return (
       <div>
+        <NameInput></NameInput>
         <ProgressBar total={ CELL_COUNT }
                      currentScore={ this.state.currentScore }
                      currentTime={ this.state.currentTime }

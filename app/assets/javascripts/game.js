@@ -79,7 +79,7 @@ var saveGame = function(user_uuid, game_uuid, time) {
     url: '/games',
     method: 'PUT',
     data: {
-      user_uuid: user_uuid,
+      uuid: user_uuid,
       game_uuid: game_uuid,
       time: time,
       steps: knightPositions

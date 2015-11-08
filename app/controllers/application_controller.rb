@@ -7,5 +7,6 @@ class ApplicationController < ActionController::Base
 
   def set_up_user
     @current_user = User.find_by_uuid(params[:uuid])
+    render status: 404, json: @controller.to_json unless @current_user
   end
 end
