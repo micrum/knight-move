@@ -41,10 +41,6 @@ var GameOverPopup = React.createClass({
     }, function(response){});
   },
 
-  newGame: function() {
-    location.reload();
-  },
-
   render: function() {
     var visible = this.props.opened ? 'block' : 'none';
     var title = this.props.total === this.props.score ? 'You Win!' : 'Defeat';
@@ -56,7 +52,7 @@ var GameOverPopup = React.createClass({
               <h3>{title}</h3>
               <p>Score: {this.props.score}</p>
               <p>Time: {this.props.time}</p>
-              <a className="main-button" onClick={ this.newGame }>Once again!</a>
+              <a className="main-button" onClick={ startNewGame }>Once again!</a>
               <div className="social-buttons">
                 <a className="twitter-share-button social-button"
                   href={twitterLink}></a>

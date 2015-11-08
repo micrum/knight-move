@@ -21,6 +21,8 @@ html
             = link_to (image_tag 'facebook_icon.svg', class: 'small-icon'), '/auth/facebook'
             p.mr Or type your name:
             = react_component('NameInput')
+            p
+            = link_to 'New Game', '/', class: 'new-game-button'
       .page-content#root
         = yield
       .sidebar.sidebar-right

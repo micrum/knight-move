@@ -26,6 +26,10 @@ var prevMoveIndex = function(x, y) {
   return (index > -1 ? index + 1 : null);
 };
 
+var startNewGame = function() {
+  location.reload();
+};
+
 var canMoveKnight = function(toX, toY) {
   const x = knightPosition[0];
   const y = knightPosition[1];
