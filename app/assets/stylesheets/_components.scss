@@ -123,8 +123,9 @@
   height: 0;
   max-width: 64px;
   float: left;
-  background-color: #FFD428;
+  background-color: $text-color;
   border-radius: 50%;
+  font-size: 2em;
 
   color: red;
   line-height: 64px;
@@ -132,9 +133,15 @@
 }
 
 .currentState {
-  background-color: #fff;
+  box-shadow:0 0 0 7px $brand-color inset;
+  background-color: $accent-color;
 }
 
 .possibleMove {
-  background-color: #000;
+  box-shadow:0 0 0 7px $accent-color inset;
+  cursor: pointer;
+}
+
+.impossibleMove {
+  opacity: .5;
 }

@@ -42,10 +42,10 @@ var Board = React.createClass({
 
     if(knightOnCell) {
       pieceClass += ' currentState';
-    } else {
-      if(!pieceMove && canMoveKnight(x,y)) {
+    } else if (!pieceMove && canMoveKnight(x,y)) {
         pieceClass += ' possibleMove';
-      }
+    } else if (pieceMove && !canMoveKnight(x,y)) {
+        pieceClass += ' impossibleMove';
     }
 
     return (
