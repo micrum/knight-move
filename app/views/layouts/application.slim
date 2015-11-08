@@ -6,18 +6,19 @@ html
     = javascript_include_tag 'https://platform.twitter.com/widgets.js', async: true
     = javascript_include_tag 'application'
     = csrf_meta_tags
+    meta name="viewport" content="width=device-width, initial-scale=1"
   body
     = javascript_include_tag 'facebook-sdk'
     .site-wrapper
       .sidebar.sidebar-left
         .navbar
           = link_to 'Knight Move', '/', class: 'home-link'
-          .login
-            p
-              = link_to 'Github', '/auth/github'
-            p
-              = link_to 'Facebook', '/auth/facebook'
           = react_component('Rules')
+          p Log in with:
+          = link_to (image_tag 'facebook_icon.svg', class: 'small-icon'), '/auth/github'
+          = link_to (image_tag 'github_icon.svg', class: 'small-icon'), '/auth/facebook'
+          p Or type your name here:
+          = react_component('NameInput')
       .page-content#root
         = yield
       .sidebar.sidebar-right

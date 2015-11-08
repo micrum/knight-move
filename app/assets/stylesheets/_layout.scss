@@ -23,10 +23,14 @@ header {
 
 .page-content {
   height: $board-height + $progress-bar-height;
+
+  @media (max-width: $x-small-screen) {
+    height: $x-small-screen;
+  }
 }
 
 .site-wrapper {
-  margin-top: $top-space*2;
+  margin: $top-space*2 0;
 
   @media (max-width: $small-screen-max) {
     margin-top: $top-space*2 +30px; //fix rails rumble banner overlay
@@ -40,6 +44,10 @@ header {
   background:rgba(0, 0, 0, 0);
   font-size: 24px;
   margin: 1% 5% 0;
+
+  p {
+    font-size: .5em;
+  }
 }
 
 .home-link {
@@ -69,7 +77,7 @@ header {
     }
 
     &-right {
-      margin-bottom: 40px;
+      margin: 40px 0;
     }
   }
 

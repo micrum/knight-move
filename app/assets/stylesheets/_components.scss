@@ -13,19 +13,27 @@
   height: $progress-bar-height;
   padding: 0 15px;
 }
+
 .progress-bar-wrapper {
   padding: 0 10px;
 }
+
 .progress-bar-score-item {
   width: 33%;
   float: left;
   text-align: center;
   padding-bottom: 10px;
+
+  @media (max-width: $x-small-screen) {
+    font-size: 12px !important;
+  }
 }
+
 .progress {
   width: 100%;
   height: 10px;
 }
+
 .progress-wrap {
   margin: 20px 0;
   background: $brand-color;
@@ -118,7 +126,7 @@ a.facebook-share-button {
 }
 
 .rules {
-  margin-top: 10px;
+  margin: 20px 0;
 }
 
 

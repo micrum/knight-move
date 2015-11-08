@@ -88,7 +88,6 @@ var Board = React.createClass({
 
     return (
       <div>
-        <NameInput></NameInput>
         <ProgressBar total={ CELL_COUNT }
                      currentScore={ this.state.currentScore }
                      currentTime={ this.state.currentTime }
@@ -100,7 +99,7 @@ var Board = React.createClass({
                        opened={this.isGameOver()}>
         </GameOverPopup>
 
-        <div style={{ maxWidth: '640px', margin: '0 auto', padding: '15px' }}>
+        <div style={{ maxWidth: '640px', margin: '0 auto', padding: '40px 15px' }}>
           { squares }
         </div>
       </div>
