@@ -6,9 +6,9 @@ var Score = React.createClass({
     return (
     <div>
         <li key={this.props.key}>
-            {this.props.user_name} &nbsp;
-            <span className="text-accent">{this.props.score}</span> &nbsp;
-            {this.props.time}s
+            <span className="truncate-name">{this.props.user_name}&nbsp;</span>
+            <span className="text-accent">{this.props.score}&nbsp;</span>
+            <span>{this.props.time}s</span>
         </li>
     </div>
     );

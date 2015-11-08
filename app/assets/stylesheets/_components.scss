@@ -120,6 +120,14 @@
   list-style-position: inside;
 }
 
+.truncate-name {
+  max-width: 140px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
 //Cell
 .simpleCell {
   width: 10%;

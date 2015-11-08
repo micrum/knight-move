@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :games
 
+  validates_length_of :name, maximum: 50
+
   class << self
     def find_or_update_from_oauth(auth_hash)
       user = where(uid: auth_hash[:uid]).first
