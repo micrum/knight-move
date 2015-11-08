@@ -8,7 +8,7 @@ class Game < ActiveRecord::Base
 
 
   def self.top_scores
-    Game.joins(:user).order('score DESC, time ASC').limit(20)
+    Game.joins(:user).where("users.name <> ''").order('score DESC, time ASC').limit(20)
   end
 
 
@@ -18,7 +18,7 @@ class Game < ActiveRecord::Base
 
 
   def position
-    uuids = Game.where('score >= ?', score).order('score DESC, time ASC').select('uuid')
+    uuids = Game.joins(:user).where('score >= ?', score).where("users.name <> ''").order('score DESC, time ASC').select('uuid')
     uuids.index { |u| u.uuid == uuid }
   end
 

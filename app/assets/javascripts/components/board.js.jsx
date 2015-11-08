@@ -6,6 +6,7 @@ var Board = React.createClass({
     return {
       currentScore: 1,
       currentTime: 0,
+      currentRank: '> 9999',
       userUUID: null,
       gameUUID: null
     };
@@ -76,20 +77,22 @@ var Board = React.createClass({
     }
 
     return (
-        <div>
-            <ProgressBar total={ CELL_COUNT }
-                         currentScore={ this.state.currentScore }
-                         currentTime={ this.state.currentTime }>
-            </ProgressBar>
-            <GameOverPopup time={ this.state.gameTime }
-                           score={ this.state.currentScore}
-                           total={ CELL_COUNT }
-                           opened={this.isGameOver()}>
-            </GameOverPopup>
-            <div style = {{ maxWidth: '640px', margin: '0 auto', padding: '15px' }}>
-                { squares }
-            </div>
+      <div>
+        <ProgressBar total={ CELL_COUNT }
+                     currentScore={ this.state.currentScore }
+                     currentTime={ this.state.currentTime }
+                     currentRank={ this.state.currentRank}>
+        </ProgressBar>
+        <GameOverPopup time={ this.state.gameTime }
+                       score={ this.state.currentScore}
+                       total={ CELL_COUNT }
+                       opened={this.isGameOver()}>
+        </GameOverPopup>
+
+        <div style={{ maxWidth: '640px', margin: '0 auto', padding: '15px' }}>
+          { squares }
         </div>
+      </div>
     );
   },
 
@@ -112,9 +115,14 @@ var Board = React.createClass({
   },
 
   moveKnightAndSave: function (x, y) {
+    var self = this;
+
     if (canMoveKnight(x, y)) {
       this.scoreUp();
       moveKnight(x, y);
+      getPosition(this.state.gameUUID).done(function(position) {
+        self.state.currentRank = position;
+      });
       saveGame(this.state.userUUID, this.state.gameUUID, this.state.currentTime);
     }
   }

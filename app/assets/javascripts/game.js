@@ -86,3 +86,19 @@ var saveGame = function(user_uuid, game_uuid, time) {
     }
   });
 };
+
+var getPosition = function(game_uuid) {
+  var deferred = $.Deferred();
+  var url = '/position?game_uuid=' + game_uuid;
+
+  $.getJSON(url, function (result) {
+
+    if (!result || !result['position']) {
+      return;
+    }
+
+    deferred.resolve(result['position']);
+  });
+
+  return deferred.promise();
+};

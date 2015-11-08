@@ -1,3 +1,12 @@
+var CurrentPosition = React.createClass({
+  render: function () {
+
+    return (
+      <div className="progress-bar-score-item text-brand"> Your rank: <span className="text-important">{this.props.currentRank}</span></div>
+    );
+  }
+});
+
 var ProgressBar = React.createClass({
   propTypes: {
     currentScore: React.PropTypes.number.isRequired,
@@ -27,7 +36,7 @@ var ProgressBar = React.createClass({
         <div className="progress-bar-score">
             <div className="progress-bar-score-item text-accent">Score: <span className="text-important">{this.props.currentScore}</span></div>
             <div className="progress-bar-score-item text-brand">Time: <span className="text-important">{this.props.currentTime}</span> </div>
-            <CurrentPosition></CurrentPosition>
+            <CurrentPosition currentRank={ this.props.currentRank }></CurrentPosition>
         </div>
         <div className="progress-bar-wrapper">
           <div className="progress-wrap progress">
