@@ -44,7 +44,7 @@ var Board = React.createClass({
     return (
         <div>
             <ProgressBar total={ CELL_COUNT } current={ this.state.currentScore }></ProgressBar>
-            <div style = {{ maxWidth: '640px', margin: '0 auto', padding: '15px' }}>
+            <div style = {{ maxWidth: '640px', margin: '30px auto', padding: '15px' }}>
                 { squares }
             </div>
         </div>
