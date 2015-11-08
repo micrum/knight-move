@@ -18,7 +18,7 @@ var Rules = React.createClass({
         return (
             <div className="rules">
                 <div className="rulesLinkBlock">
-                    <a className="rulesLink" onClick={this.openPopup}>Rules</a>
+                    <a className="rulesLink mr" onClick={this.openPopup}>Rules</a>
                 </div>
                 <RenderInBody>
                     <div className="popup" style={{display: visible}}>

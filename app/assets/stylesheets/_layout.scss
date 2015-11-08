@@ -45,6 +45,12 @@ header {
   font-size: 24px;
   margin: 1% 5% 0;
 
+  .nav {
+    @media (max-width: $small-screen-max) {
+      display: inline-flex;
+    }
+  }
+
   p {
     font-size: .5em;
   }
