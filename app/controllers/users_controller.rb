@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :set_up_user, except: [:create]
+  before_filter :set_up_user, except: [:create, :external_auth]
 
 
   def create
