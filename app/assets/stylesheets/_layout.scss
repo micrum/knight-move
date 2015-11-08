@@ -22,7 +22,7 @@ header {
 }
 
 .page-content {
-  height: 512px + $progress-bar-height;
+  height: $board-height + $progress-bar-height;
 }
 
 .site-wrapper {
@@ -54,7 +54,7 @@ header {
 .sidebar {
   position: fixed;
 
-  @media (max-width: $small-screen) {
+  @media (max-width: $small-screen-max) {
     left: 0;
     width: 100%;
     text-align: center;
@@ -72,8 +72,8 @@ header {
   @media (min-width: $small-screen) {
     top: $top-space;
     width: $sidebar-width;
-    max-width: 205px;
-    min-width: 190px;
+    max-width: 190px;
+    min-width: 180px;
 
     &-left {
       left: $sidebar-right-space;

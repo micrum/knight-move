@@ -46,20 +46,22 @@ var GameOverPopup = React.createClass({
     var title = this.props.total === this.props.score ? 'You Win!' : 'Defeat';
     var twitterLink = "https://twitter.com/intent/tweet?" + this.getTwitterOptions();
     return (
-      <div className="gameOver popup" style={{display: visible}}>
-          <h3>{title}</h3>
-          <p>Score: {this.props.score}</p>
-          <p>Time: {this.props.time}</p>
-          <a className="main-button" onClick={this.closePopup}>Once again!</a>
-          <div className="social-buttons">
-            <a className="twitter-share-button social-button"
-              href={twitterLink}>
-              T</a>
-            <a className="facebook-share-button social-button"
-              onClick={this.shareFacebook}>
-              F</a>
-          </div>
-      </div>
+      <RenderInBody>
+        <div className="gameOver popup" style={{display: visible}}>
+            <h3>{title}</h3>
+            <p>Score: {this.props.score}</p>
+            <p>Time: {this.props.time}</p>
+            <a className="main-button" onClick={this.closePopup}>Once again!</a>
+            <div className="social-buttons">
+              <a className="twitter-share-button social-button"
+                href={twitterLink}>
+                T</a>
+              <a className="facebook-share-button social-button"
+                onClick={this.shareFacebook}>
+                F</a>
+            </div>
+        </div>
+      </RenderInBody>
     );
   }
 });

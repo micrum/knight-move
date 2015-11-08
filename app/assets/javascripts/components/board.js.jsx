@@ -1,12 +1,14 @@
 var PropTypes = React.PropTypes;
-var CELL_COUNT = 64;
+var CELL_COUNT = 100;
 
 var Board = React.createClass({
   getInitialState: function() {
     return {
-      gameTime: "2:15",
-      currentScore: 63
-    }; // fetch from props?
+      currentScore: 0,
+      currentTime: 0,
+      user_uuid: null,
+      game_uuid: null
+    };
   },
 
   propTypes: {
@@ -24,16 +26,26 @@ var Board = React.createClass({
     return this.state.currentScore === CELL_COUNT; // TODO: add to condition - or can't move anymore
   },
 
+  startTime: function() {
+    var self = this;
+
+    setInterval(function() {
+      self.setState({currentTime: self.state.currentTime + 1});
+    }, 1000);
+
+    return true;
+  },
+
   renderSquare: function(i) {
-    var x = i % 8,
-        y = Math.floor(i / 8),
+    var x = i % 10,
+        y = Math.floor(i / 10),
         knightX = this.props.knightPosition[0],
         knightY = this.props.knightPosition[1],
         piece = (x === knightX && y === knightY) ? <Knight /> : null;
 
     return (
       <div key={i} onClick={ this.handleSquareClick.bind(this, x, y) }
-           style={{ width: '12.5%', paddingBottom: '12.5%', height: '0',
+           style={{ width: '10%', paddingBottom: '10%', height: '0',
                             maxWidth: '64px', float: 'left', backgroundColor: '#FFD428',
                             borderRadius: '50%' }}>
           { piece }
@@ -49,18 +61,30 @@ var Board = React.createClass({
     }
 
     return (
-      <div style = {{ maxWidth: '512px', margin: '0 auto' }}>
-        <ProgressBar total={ CELL_COUNT } current={ this.state.currentScore }></ProgressBar>
-        <GameOverPopup time={ this.state.gameTime } score={ this.state.currentScore} total={ CELL_COUNT } opened={this.isGameOver()}></GameOverPopup>
-        { squares }
-      </div>
+        <div>
+            <ProgressBar total={ CELL_COUNT }
+                         currentScore={ this.state.currentScore }
+                         currentTime={ this.state.currentTime }>
+            </ProgressBar>
+            <GameOverPopup time={ this.state.gameTime }
+                           score={ this.state.currentScore}
+                           total={ CELL_COUNT }
+                           opened={this.isGameOver()}>
+            </GameOverPopup>
+            <div style = {{ maxWidth: '640px', margin: '0 auto', padding: '15px' }}>
+                { squares }
+            </div>
+        </div>
     );
   },
 
   handleSquareClick: function(x, y) {
+    if (isFirstStep()){
+      this.startTime();
+    }
     if (canMoveKnight(x, y)) {
       this.scoreUp();
       moveKnight(x, y);
     }
-  },
+  }
 });

@@ -19,7 +19,7 @@ var RenderInBody = React.createClass({
 
 
     _renderLayer: function() {
-        React.render(this.props.children, this.popup);
+      ReactDOM.render(this.props.children, this.popup);
     },
 
 

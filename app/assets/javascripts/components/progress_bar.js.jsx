@@ -24,10 +24,9 @@ var ProgressBar = React.createClass({
     return (
       <div className="progress-bar-container">
         <div className="progress-bar-score">
-          <div>
-            <div className="text-center text-brand">Score:</div>
-            <div className="text-center text-brand">{this.props.current}</div>
-          </div>
+            <div className="progress-bar-score-item">Score: {this.props.currentScore} </div>
+            <div className="progress-bar-score-item">Time: {this.props.currentTime} </div>
+            <CurrentPosition></CurrentPosition>
         </div>
         <div className="progress-bar-wrapper">
           <div className="progress-wrap progress">

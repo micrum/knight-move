@@ -52,6 +52,7 @@ class GamesController < ApplicationController
 
   def set_up_game
     @current_game = Game.find_by_uuid(params[:game_uuid])
+    render status: 404, json: @controller.to_json unless @current_game
   end
 
 
