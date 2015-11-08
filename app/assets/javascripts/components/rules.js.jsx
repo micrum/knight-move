@@ -27,7 +27,7 @@ var Rules = React.createClass({
                         <p>To solve the puzzle, the user must go through the
                             horse (the letter L) in all 64 cells are usually
                             chessboard and each cell can visit only once.</p>
-                        <a onClick={this.closePopup}>Got it!</a>
+                        <a className="main-button" onClick={this.closePopup}>Got it!</a>
                     </div>
                 </RenderInBody>
             </div>

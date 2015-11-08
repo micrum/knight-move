@@ -23,7 +23,7 @@
     color: #b51b64;
     text-align: center;
   }
-  a {
+  a.main-button {
     display: block;
     padding: 10px;
     background-color: #e50e73;
@@ -34,6 +34,9 @@
     &:hover {
       color: #fed428;
     }
+  }
+  a.social-button {
+
   }
 }
 

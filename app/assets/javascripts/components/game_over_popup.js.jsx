@@ -23,7 +23,12 @@ var GameOverPopup = React.createClass({
           <h3>{title}</h3>
           <p>Score: {this.props.score}</p>
           <p>Time: {this.props.time}</p>
-          <a onClick={this.closePopup}>Once again!</a>
+          <a className="main-button" onClick={this.closePopup}>Once again!</a>
+          <div className="social-buttons">
+            <a className="twitter-share-button social-button"
+              href="https://twitter.com/intent/tweet">
+              Tweet</a>
+          </div>
         </div>
       </div>
     );
