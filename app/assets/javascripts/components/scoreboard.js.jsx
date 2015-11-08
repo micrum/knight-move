@@ -28,7 +28,7 @@ var Scoreboard = React.createClass({
 
     $.getJSON(url, function (result) {
 
-      if (!result || !result['top_games'] || !result['top_games']) {
+      if (!result || !result['top_games'] || !result['top_games'].length) {
         return;
       }
 
