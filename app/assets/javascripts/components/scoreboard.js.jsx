@@ -6,9 +6,9 @@ var Score = React.createClass({
     return (
     <div>
         <li key={this.props.key}>
-            {this.props.user_name} &nbsp;
-            <span className="text-accent">{this.props.score}</span> &nbsp;
-            {this.props.time}s
+            <span className="truncate-name">{this.props.user_name}&nbsp;</span>
+            <span className="text-accent">{this.props.score}&nbsp;</span>
+            <span>{this.props.time}s</span>
         </li>
     </div>
     );
@@ -51,7 +51,7 @@ var Scoreboard = React.createClass({
 
   render: function () {
     var scores = this.state.scores.map(function (s) {
-      return <Score score={s.score} time={s.time} user_name={s.user_name} ref={s.id}/>
+      return <Score score={s.score} time={s.time} user_name={s.user_name} key={s.id}/>
     });
 
     if (!scores.length) {

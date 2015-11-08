@@ -6,7 +6,7 @@ var Board = React.createClass({
     return {
       currentScore: 1,
       currentTime: 0,
-      currentRank: '> 9999',
+      currentRank: 'over 9000',
       userUUID: null,
       gameUUID: null
     };
