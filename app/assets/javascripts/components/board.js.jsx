@@ -112,8 +112,8 @@ var Board = React.createClass({
       this.startTime();
       getUserUUID().done(function (uuid) {
         self.state.userUUID = uuid;
-        setGameUUID().done(function (uuid) {
-          self.state.gameUUID = uuid;
+        setGameUUID(uuid).done(function (game_uuid) {
+          self.state.gameUUID = game_uuid;
           self.moveKnightAndSave(x, y);
         });
       });

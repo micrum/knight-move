@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
 
-  before_filter :set_up_user, except: [:scoreboard]
+  before_filter :set_up_user, except: [:scoreboard, :position]
   before_filter :set_up_game, except: [:create, :scoreboard]
 
 

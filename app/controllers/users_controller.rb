@@ -27,9 +27,7 @@ class UsersController < ApplicationController
   def external_auth
     @current_user = User.find_or_update_from_oauth(auth_hash.merge(uuid: @current_user.uuid))
 
-    respond_to do |format|
-      format.json { render :json => { uuid: @current_user.uuid } }
-    end
+    render json: { uuid: @current_user.uuid }
   end
 
 

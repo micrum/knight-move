@@ -45,10 +45,10 @@ var isFirstStep = function() {
 };
 
 
-var setGameUUID = function() {
+var setGameUUID = function(user_uuid) {
   var deferred = $.Deferred();
 
-  createGame().done( function(data) {
+  createGame(user_uuid).done( function(data) {
     $.cookie('game_uuid', data);
     deferred.resolve(data);
   });
@@ -58,11 +58,14 @@ var setGameUUID = function() {
 
 //----------- API ------------
 
-function createGame() {
+function createGame(user_uuid) {
   var deferred = $.Deferred();
   var url = '/games';
+  var params = {
+    uuid: user_uuid
+  };
 
-  $.post(url, function (result) {
+  $.post(url, params, function (result) {
 
     if (!result || !result['uuid']) {
       return;

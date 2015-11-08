@@ -25,7 +25,15 @@ var getUserUUID = function () {
     })
   }
   else {
-    deferred.resolve(uuid);
+    getUserName(uuid).done(function (data) {
+      deferred.resolve(uuid);
+    }).fail( function(data) {
+      createUser().done(function (data) {
+        $.cookie('user_uuid', data);
+        deferred.resolve(data);
+      })
+    });
+
   }
 
   return deferred.promise();
@@ -37,12 +45,9 @@ var getUserName = function (uuid) {
   var url = '/users?uuid=' + uuid;
 
   $.getJSON(url, function (result) {
-
-    if (!result || !result['name']) {
-      return;
-    }
-
     deferred.resolve(result['name']);
+  }).fail(function() {
+    deferred.reject(null);
   });
 
   return deferred.promise();
