@@ -3,7 +3,12 @@ var CELL_COUNT = 100;
 
 var Board = React.createClass({
   getInitialState: function() {
-    return {currentScore: 0, currentTime: 0};
+    return {
+      currentScore: 0,
+      currentTime: 0,
+      user_uuid: null,
+      game_uuid: null
+    };
   },
 
   propTypes: {
@@ -65,7 +70,9 @@ var Board = React.createClass({
   },
 
   handleSquareClick: function(x, y) {
-    this.startTime();
+    if (isFirstStep()){
+      this.startTime();
+    }
     if (canMoveKnight(x, y)) {
       this.scoreUp();
       moveKnight(x, y);

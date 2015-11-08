@@ -34,3 +34,7 @@ var canMoveKnight = function(toX, toY) {
       (Math.abs(dx) === 1 && Math.abs(dy) === 2);
   }
 };
+
+var isFirstStep = function() {
+  return (knightPositions.length == 1);
+};
