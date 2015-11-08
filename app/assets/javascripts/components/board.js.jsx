@@ -40,13 +40,11 @@ var Board = React.createClass({
     var pieceClass = 'simpleCell',
         pieceMove = prevMoveIndex(x, y);
 
-    if(!pieceMove) {
-      if(knightOnCell) {
-        pieceClass += ' currentState';
-      } else {
-        if(canMoveKnight(x,y)) {
-          pieceClass += ' possibleMove';
-        }
+    if(knightOnCell) {
+      pieceClass += ' currentState';
+    } else {
+      if(!pieceMove && canMoveKnight(x,y)) {
+        pieceClass += ' possibleMove';
       }
     }
 
