@@ -82,17 +82,18 @@
       height: 40px;
       margin-left: 10px;
       display: inline-block;
-      border-radius: 50%;
-      background-color: #e50e73;
-      line-height: 40px;
-      color: #fed428;
-      text-align: center;
       cursor: pointer;
-      text-decoration: none;
     }
   }
 }
 
+a.twitter-share-button {
+  background-image: url('twitter_icon.svg');
+}
+
+a.facebook-share-button {
+  background-image: url('facebook_icon.svg');
+}
 
 // RULES
 .rulesLinkBlock {

@@ -55,11 +55,9 @@ var GameOverPopup = React.createClass({
               <a className="main-button" onClick={this.closePopup}>Once again!</a>
               <div className="social-buttons">
                 <a className="twitter-share-button social-button"
-                  href={twitterLink}>
-                  T</a>
+                  href={twitterLink}></a>
                 <a className="facebook-share-button social-button"
-                  onClick={this.shareFacebook}>
-                  F</a>
+                  onClick={this.shareFacebook}></a>
               </div>
           </div>
         </RenderInBody>
