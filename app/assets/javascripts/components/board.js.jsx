@@ -2,7 +2,7 @@ var PropTypes = React.PropTypes;
 var CELL_COUNT = 100;
 
 var Board = React.createClass({
-  getInitialState: function() {
+  getInitialState: function () {
     return {
       currentScore: 1,
       currentTime: 0,
@@ -18,71 +18,71 @@ var Board = React.createClass({
     ).isRequired
   },
 
-  scoreUp: function(e){
+  scoreUp: function (e) {
     this.setState({currentScore: this.state.currentScore + 1});
     return true;
   },
 
-  isGameOver: function(){
+  isGameOver: function () {
     var gameOver = this.state.possibleMovesCount === 0;
-    if(gameOver){
+    if (gameOver) {
       this.stopTime();
     }
     return gameOver;
   },
 
-  startTime: function() {
+  startTime: function () {
     var self = this;
 
-    this.state.timer = setInterval(function() {
+    this.state.timer = setInterval(function () {
       self.setState({currentTime: self.state.currentTime + 1});
     }, 1000);
 
     return true;
   },
 
-  stopTime: function() {
+  stopTime: function () {
     clearInterval(this.state.timer);
   },
 
-  renderPiece: function(key, x, y, knightOnCell) {
+  renderPiece: function (key, x, y, knightOnCell) {
     var pieceClass = 'simpleCell',
-        pieceMove = prevMoveIndex(x, y);
+      pieceMove = prevMoveIndex(x, y);
 
-    if(knightOnCell) {
+    if (knightOnCell) {
       pieceClass += ' currentState';
-    } else if (!pieceMove && canMoveKnight(x,y)) {
-        this.state.possibleMovesCount = 1;
-        pieceClass += ' possibleMove';
-    } else if (pieceMove && !canMoveKnight(x,y)) {
-        pieceClass += ' impossibleMove';
+    } else if (!pieceMove && canMoveKnight(x, y)) {
+      this.state.possibleMovesCount = 1;
+      pieceClass += ' possibleMove';
+    } else if (pieceMove && !canMoveKnight(x, y)) {
+      pieceClass += ' impossibleMove';
     }
 
     return (
       <div key={key} onClick={ this.handleSquareClick.bind(this, x, y) }
-          className={ pieceClass }>
+           className={ pieceClass }>
         { pieceMove }
       </div>
     );
   },
 
-  renderSquare: function(i) {
+  renderSquare: function (i) {
     var x = i % 10,
-        y = Math.floor(i / 10),
-        knightX = this.props.knightPosition[0],
-        knightY = this.props.knightPosition[1],
-        knightOnCell = (x === knightX && y === knightY);
+      y = Math.floor(i / 10),
+      knightX = this.props.knightPosition[0],
+      knightY = this.props.knightPosition[1],
+      knightOnCell = (x === knightX && y === knightY);
 
     return (
       this.renderPiece(i, x, y, knightOnCell)
     );
   },
 
-  render: function() {
+  render: function () {
     var squares = [];
     this.state.possibleMovesCount = 0;
 
-    for(var i = 0; i < CELL_COUNT; i++) {
+    for (var i = 0; i < CELL_COUNT; i++) {
       squares.push(this.renderSquare(i));
     }
 
@@ -93,18 +93,26 @@ var Board = React.createClass({
                      currentTime={ this.state.currentTime }
                      currentRank={ this.state.currentRank}>
         </ProgressBar>
-        <GameOverPopup time={ this.state.currentTime }
-                       score={ this.state.currentScore}
-                       total={ CELL_COUNT }
-                       opened={this.isGameOver()}
-                       currentRank={ this.state.currentRank}>
-        </GameOverPopup>
-
+        {this.renderGameOver()}
         <div style={{ maxWidth: '640px', margin: '0 auto', padding: '40px 15px' }}>
           { squares }
         </div>
       </div>
     );
+  },
+
+  renderGameOver: function () {
+    if (this.isGameOver()) {
+      return (
+        <GameOverPopup time={ this.state.currentTime }
+                       score={ this.state.currentScore}
+                       total={ CELL_COUNT }
+                       opened={true}
+                       currentRank={ this.state.currentRank}>
+        </GameOverPopup>
+      )
+    }
+    return null;
   },
 
   handleSquareClick: function (x, y) {
@@ -131,7 +139,7 @@ var Board = React.createClass({
     if (canMoveKnight(x, y)) {
       this.scoreUp();
       moveKnight(x, y);
-      getPosition(this.state.gameUUID).done(function(position) {
+      getPosition(this.state.gameUUID).done(function (position) {
         self.state.currentRank = position;
       });
       saveGame(this.state.userUUID, this.state.gameUUID, this.state.currentTime);
