@@ -15,12 +15,18 @@ function createUser() {
 }
 
 var getUserUUID = function() {
+  var deferred = $.Deferred();
   var uuid = $.cookie('user_uuid');
+
   if (typeof uuid == 'undefined') {
     createUser().done( function(data) {
       $.cookie('user_uuid', data);
-      uuid = data;
+      deferred.resolve(data);
     })
   }
-  return uuid;
+  else {
+    deferred.resolve(uuid);
+  }
+
+  return deferred.promise();
 };

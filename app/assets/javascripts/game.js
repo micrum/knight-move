@@ -24,7 +24,7 @@ var moveKnight = function(toX, toY) {
 var prevMoveIndex = function(x, y) {
   var index = knightPositions.indexOf(x + ',' + y);
   return (index > -1 ? index + 1 : null);
-}
+};
 
 var canMoveKnight = function(toX, toY) {
   const x = knightPosition[0];
@@ -45,6 +45,17 @@ var isFirstStep = function() {
 };
 
 
+var setGameUUID = function() {
+  var deferred = $.Deferred();
+
+  createGame().done( function(data) {
+    $.cookie('game_uuid', data);
+    deferred.resolve(data);
+  });
+
+  return deferred.promise();
+};
+
 //----------- API ------------
 
 function createGame() {
@@ -53,23 +64,25 @@ function createGame() {
 
   $.post(url, function (result) {
 
-    if (!result || !result['game_uuid']) {
+    if (!result || !result['uuid']) {
       return;
     }
 
-    deferred.resolve(result['game_uuid']);
+    deferred.resolve(result['uuid']);
   });
 
   return deferred.promise();
 }
 
-var getGameUUID = function() {
-  var uuid = $.cookie('game_uuid');
-  if (typeof uuid == 'undefined') {
-    createUser().done( function(data) {
-      $.cookie('game_uuid', data);
-      uuid = data;
-    })
-  }
-  return uuid;
+var saveGame = function(user_uuid, game_uuid, time) {
+  $.ajax({
+    url: '/games',
+    method: 'PUT',
+    data: {
+      user_uuid: user_uuid,
+      game_uuid: game_uuid,
+      time: time,
+      steps: knightPositions
+    }
+  });
 };

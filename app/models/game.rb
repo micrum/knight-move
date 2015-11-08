@@ -12,6 +12,19 @@ class Game < ActiveRecord::Base
   end
 
 
+  def game_stats
+    { steps: steps, time: time }
+  end
+
+
+  def position
+    uuids = Game.where('score >= ?', score).order('score DESC, time ASC').select('uuid')
+    uuids.index { |u| u.uuid == uuid }
+  end
+
+
+  private
+
   def validate_time
     new_time = self.time
     old_time = changed_attributes[:time]
@@ -26,31 +39,21 @@ class Game < ActiveRecord::Base
     result = true
 
     self.steps.each_with_index do |step, index|
-      result = valid_next_step?(step, steps[index])
+      result = valid_next_step?(step, steps[index + 1])
       break unless result
     end
     result
   end
 
 
-  def game_stats
-    { steps: steps, time: time }
-  end
+  def valid_next_step?(cur_coords_str, next_coords_str)
+    return true if next_coords_str.nil?
 
+    cur_coords = cur_coords_str.split(',')
+    next_coords = next_coords_str.split(',')
 
-  def position
-    uuids = Game.where('score >= ?', score).order('score DESC, time ASC').select('uuid')
-    uuids.index { |u| u.uuid == uuid }
-  end
-
-
-  private
-
-  def valid_next_step?(cur_coords, next_coords)
-    return true if next_coords.nil?
-
-    x = (cur_coords[0] - next_coords[0]).abs
-    y = (cur_coords[1] - next_coords[1]).abs
+    x = (cur_coords[0].to_i - next_coords[0].to_i).abs
+    y = (cur_coords[1].to_i - next_coords[1].to_i).abs
 
     if (x == 1 && y == 2) || (x == 2 && y == 1)
       true

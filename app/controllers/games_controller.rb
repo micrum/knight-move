@@ -19,11 +19,13 @@ class GamesController < ApplicationController
   end
 
 
-  def save_steps
+  def update
     time  = params[:time]
-    steps = JSON.parse(params[:steps])
+    steps = params[:steps]
 
-    if @current_game.update_attributes(time: time, steps: steps)
+    if @current_game.update_attributes(time: time,
+                                       steps: steps,
+                                       score: steps.size - 1)
       render status: 200, json: @controller.to_json
     else
       render status: 406, json: @controller.to_json

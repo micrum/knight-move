@@ -6,8 +6,8 @@ var Board = React.createClass({
     return {
       currentScore: 0,
       currentTime: 0,
-      user_uuid: null,
-      game_uuid: null
+      userUUID: null,
+      gameUUID: null
     };
   },
 
@@ -93,15 +93,29 @@ var Board = React.createClass({
     );
   },
 
-  handleSquareClick: function(x, y) {
-    if (isFirstStep()){
+  handleSquareClick: function (x, y) {
+    var self = this;
+    if (isFirstStep()) {
       this.startTime();
-      this.state.user_uuid = getUserUUID();
-      this.state.game_uuid = getGameUUID();
+      getUserUUID().done(function (uuid) {
+        self.state.userUUID = uuid;
+        setGameUUID().done(function (uuid) {
+          self.state.gameUUID = uuid;
+          self.moveKnightAndSave(x, y);
+        });
+      });
     }
+    else {
+      self.moveKnightAndSave(x, y);
+    }
+
+  },
+
+  moveKnightAndSave: function (x, y) {
     if (canMoveKnight(x, y)) {
       this.scoreUp();
       moveKnight(x, y);
+      saveGame(this.state.userUUID, this.state.gameUUID, this.state.currentTime);
     }
   }
 });

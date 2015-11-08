@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   post 'games', to: 'games#create'
   get 'games', to: 'games#show'
-  post 'save_steps', to: 'games#save_steps'
+  put 'games', to: 'games#update'
   get 'position', to: 'games#position'
   get 'scoreboard', to: 'games#scoreboard'
 end

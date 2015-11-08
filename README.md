@@ -36,7 +36,7 @@ To create a Game: `POST http://localhost:3000/games` - respond will contain uuid
 
 To get game by uuid: `GET http://localhost:3000/games?game_uuid=#{uuid}`
 
-To save game stats: `GET http://localhost:3000/games?game_uuid=#{uuid}&time=#{time}&steps=#{steps}`
+To save game stats: `PUT http://localhost:3000/games?game_uuid=#{uuid}&time=#{time}&steps=#{steps}`
 
 To retrieve position of current game: `GET http://localhost:3000/position?game_uuid=#{uuid}`
 
