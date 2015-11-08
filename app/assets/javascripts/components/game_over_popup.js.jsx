@@ -2,7 +2,7 @@ var GameOverPopup = React.createClass({
   propTypes: {
     score: React.PropTypes.number,
     total: React.PropTypes.number,
-    time: React.PropTypes.string,
+    time: React.PropTypes.number,
     opened: React.PropTypes.bool
   },
 
