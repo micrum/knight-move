@@ -1,7 +1,8 @@
 var ProgressBar = React.createClass({
   propTypes: {
-    current: React.PropTypes.number,
-    total: React.PropTypes.number
+    currentScore: React.PropTypes.number.isRequired,
+    currentTime: React.PropTypes.number.isRequired,
+    total: React.PropTypes.number.isRequired
   },
 
   componentDidMount: function () {
@@ -9,7 +10,7 @@ var ProgressBar = React.createClass({
   },
 
   moveProgressBar: function() {
-    var getPercent = this.props.current / this.props.total;
+    var getPercent = this.props.currentScore / this.props.total;
     var getProgressWrapWidth = $('.progress-wrap').width();
     var progressTotal = getPercent * getProgressWrapWidth;
     var animationLength = 400;
