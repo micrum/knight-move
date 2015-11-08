@@ -28,11 +28,12 @@ var Board = React.createClass({
     var x = i % 8,
         y = Math.floor(i / 8),
         knightX = this.props.knightPosition[0],
-        knightY = this.props.knightPosition[1], 
+        knightY = this.props.knightPosition[1],
         piece = (x === knightX && y === knightY) ? <Knight /> : null;
 
     return (
-      <div key={i} onClick={this.scoreUp} style={{ width: '12.5%', paddingBottom: '12.5%', height: '0',
+      <div key={i} onClick={ this.handleSquareClick.bind(this, x, y) }
+           style={{ width: '12.5%', paddingBottom: '12.5%', height: '0',
                             maxWidth: '64px', float: 'left', backgroundColor: '#FFD428',
                             borderRadius: '50%' }}>
           { piece }
@@ -49,11 +50,17 @@ var Board = React.createClass({
 
     return (
       <div style = {{ maxWidth: '512px', margin: '0 auto' }}>
-        <Rules></Rules>
         <ProgressBar total={ CELL_COUNT } current={ this.state.currentScore }></ProgressBar>
         <GameOverPopup time={ this.state.gameTime } score={ this.state.currentScore} total={ CELL_COUNT } opened={this.isGameOver()}></GameOverPopup>
         { squares }
       </div>
     );
-  }
+  },
+
+  handleSquareClick: function(x, y) {
+    if (canMoveKnight(x, y)) {
+      this.scoreUp();
+      moveKnight(x, y);
+    }
+  },
 });

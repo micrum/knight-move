@@ -14,7 +14,7 @@ body {
 }
 
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   margin: auto;
@@ -22,8 +22,7 @@ header {
 }
 
 .page-content {
-  margin: 50px 10px 0;
-  padding-bottom: 50px;
+  height: 512px + $progress-bar-height;
 }
 
 
@@ -32,7 +31,7 @@ header {
   font-weight: 400;
   background:rgba(0, 0, 0, 0);
   font-size: 24px;
-  margin: 20px 40px 0;
+  margin: 1% 5% 0;
 }
 
 .home-link {
@@ -61,17 +60,34 @@ header {
     width: 100%;
     text-align: center;
     position: absolute;
+
+    &-left {
+      top: 0;
+    }
   }
 
   @media (min-width: $small-screen) {
-    right: $sidebar-right-space;
-    top: 5%;
+    top: $top-space;
     width: $sidebar-width;
     max-width: 205px;
     min-width: 190px;
+
+    &-left {
+      left: $sidebar-right-space;
+    }
+
+    &-right {
+      right: $sidebar-right-space;
+    }
   }
 }
 
 .site-wrapper {
-  height: 512px;
+  margin-top: $top-space*2;
+}
+
+
+.scoreboard ol {
+  margin: 0;
+  padding: 0;
 }
