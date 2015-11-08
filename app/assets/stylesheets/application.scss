@@ -2,6 +2,11 @@
 @import 'layout';
 @import 'progress';
 
+// TODO: fix double rendering of popup
+.rules .popup {
+  display: none !important;
+}
+
 .popup {
   border: 5px solid #d41356;
   border-radius: 10px;
@@ -9,7 +14,9 @@
   position: absolute;
   width: 30%;
   top: 20%;
-  left: 30%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   padding: 20px 40px;
 
   h3 {
@@ -31,17 +38,14 @@
 }
 
 .rulesLinkBlock {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
+  @media (min-width: $small-screen) {
+    margin-top: 2em;
+  }
 }
 
 .rulesLink {
   display: block;
   width: 100%;
   height: 100%;
-  padding: 10px;
   cursor: pointer;
 }

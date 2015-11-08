@@ -6,9 +6,12 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    = render 'shared/header'
     .site-wrapper
+      .sidebar.sidebar-left
+        .navbar
+          = link_to 'Knight Move', '/', class: 'home-link'
+          = react_component('Rules')
       .page-content#root
         = yield
-    .sidebar
-      = react_component('Scoreboard')
+      .sidebar.sidebar-right
+        = react_component('Scoreboard')

@@ -1,5 +1,7 @@
 .progress-bar-container {
-  margin: 0 10%;
+  max-width: 512px;
+  margin: 0 auto;
+  height: $progress-bar-height;
 }
 .progress-bar-wrapper {
   display: inline-block;
