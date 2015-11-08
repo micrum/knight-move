@@ -21,6 +21,11 @@ var moveKnight = function(toX, toY) {
   emitChange();
 };
 
+var prevMoveIndex = function(x, y) {
+  var index = knightPositions.indexOf(x + ',' + y);
+  return (index > -1 ? index + 1 : null);
+}
+
 var canMoveKnight = function(toX, toY) {
   const x = knightPosition[0];
   const y = knightPosition[1];

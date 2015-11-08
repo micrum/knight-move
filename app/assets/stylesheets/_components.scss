@@ -115,3 +115,26 @@
   padding: 0;
   list-style-position: inside;
 }
+
+//Cell
+.simpleCell {
+  width: 10%;
+  padding-bottom: 10%;
+  height: 0;
+  max-width: 64px;
+  float: left;
+  background-color: #FFD428;
+  border-radius: 50%;
+
+  color: red;
+  line-height: 64px;
+  text-align: center;
+}
+
+.currentState {
+  background-color: #fff;
+}
+
+.possibleMove {
+  background-color: #000;
+}

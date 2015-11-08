@@ -36,20 +36,37 @@ var Board = React.createClass({
     return true;
   },
 
+  renderPiece: function(key, x, y, knightOnCell) {
+    var pieceClass = 'simpleCell',
+        pieceMove = prevMoveIndex(x, y);
+
+    if(!pieceMove) {
+      if(knightOnCell) {
+        pieceClass += ' currentState';
+      } else {
+        if(canMoveKnight(x,y)) {
+          pieceClass += ' possibleMove';
+        }
+      }
+    }
+
+    return (
+      <div key={key} onClick={ this.handleSquareClick.bind(this, x, y) }
+          className={ pieceClass }>
+        { pieceMove }
+      </div>
+    );
+  },
+
   renderSquare: function(i) {
     var x = i % 10,
         y = Math.floor(i / 10),
         knightX = this.props.knightPosition[0],
         knightY = this.props.knightPosition[1],
-        piece = (x === knightX && y === knightY) ? <Knight /> : null;
+        knightOnCell = (x === knightX && y === knightY);
 
     return (
-      <div key={i} onClick={ this.handleSquareClick.bind(this, x, y) }
-           style={{ width: '10%', paddingBottom: '10%', height: '0',
-                            maxWidth: '64px', float: 'left', backgroundColor: '#FFD428',
-                            borderRadius: '50%' }}>
-          { piece }
-      </div>
+      this.renderPiece(i, x, y, knightOnCell)
     );
   },
 
