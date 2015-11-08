@@ -12,7 +12,6 @@
   width: 33%;
   float: left;
   text-align: center;
-  color: $brand-color;
   padding-bottom: 10px;
 }
 .progress {
@@ -21,13 +20,13 @@
 }
 .progress-wrap {
   margin: 20px 0;
-  background: #e80d73;
-  border: 2px solid #871d5d;
+  background: $brand-color;
+  border: 2px solid $brand-dark;
   border-radius: 6px;
   overflow: hidden;
   position: relative;
   .progress-bar {
-    background: #871d5d;
+    background: $brand-dark;
     left: 0;
     position: absolute;
     top: 0;
