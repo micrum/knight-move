@@ -105,4 +105,10 @@ header {
       right: $sidebar-right-space;
     }
   }
+
+  @media (max-width: $x-small-screen) {
+    &-right {
+      margin: 80px 0;
+    }
+  }
 }

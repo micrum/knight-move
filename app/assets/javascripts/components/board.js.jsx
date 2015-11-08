@@ -59,7 +59,7 @@ var Board = React.createClass({
     }
 
     return (
-        <div key={key} onClick={ this.handleSquareClick.bind(this, x, y) }
+        <div style={{ margin: '1px'}} key={key} onClick={ this.handleSquareClick.bind(this, x, y) }
              className={ pieceClass }>
             <span className="cellScore">{ pieceMove }</span>
         </div>
@@ -94,7 +94,7 @@ var Board = React.createClass({
                      currentRank={ this.state.currentRank}>
         </ProgressBar>
         {this.renderGameOver()}
-        <div style={{ maxWidth: '640px', margin: '0 auto', padding: '40px 15px' }}>
+        <div style={{ maxWidth: '660px', margin: '0 auto', padding: '40px 15px' }}> {/* 660px = 640 + 10*2*2px cell margin */}
           { squares }
         </div>
       </div>

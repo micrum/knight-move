@@ -11,10 +11,10 @@ $sidebar-width: 10%;
 $sidebar-right-space: 3%;
 $progress-bar-height: 50px;
 $top-space: 50px;
-$board-height: 640px;
+$board-height: 680px; // 10*64px (cell-width) + 2*10*2px (cell margin)
 
 
-$small-screen: 1080px;
+$small-screen: 1085px;
 $small-screen-max: $small-screen - 1px;
 
-$x-small-screen: 666px;
+$x-small-screen: 690px;
