@@ -26,7 +26,7 @@ var ProgressBar = React.createClass({
         <div className="progress-bar-score">
           <div>
             <div className="text-center text-brand">Score:</div>
-            <div className="text-center text-brand">{this.props.current}</div>
+            <div className="text-center text-brand">{this.props.currentScore}</div>
           </div>
           <CurrentPosition></CurrentPosition>
         </div>

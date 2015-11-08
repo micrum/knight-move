@@ -3,7 +3,7 @@ var CELL_COUNT = 100;
 
 var Board = React.createClass({
   getInitialState: function() {
-    return {currentScore: 0};
+    return {currentScore: 0, currentTime: 0};
   },
 
   propTypes: {
@@ -14,6 +14,16 @@ var Board = React.createClass({
 
   scoreUp: function(e){
     this.setState({currentScore: this.state.currentScore + 1});
+    return true;
+  },
+
+  startTime: function() {
+    var self = this;
+
+    setInterval(function() {
+      self.setState({currentTime: self.state.currentTime + 1});
+    }, 1000);
+
     return true;
   },
 
@@ -43,7 +53,10 @@ var Board = React.createClass({
 
     return (
         <div>
-            <ProgressBar total={ CELL_COUNT } current={ this.state.currentScore }></ProgressBar>
+            <ProgressBar total={ CELL_COUNT }
+                         currentScore={ this.state.currentScore }
+                         currentTime={ this.state.currentTime }>
+            </ProgressBar>
             <div style = {{ maxWidth: '640px', margin: '30px auto', padding: '15px' }}>
                 { squares }
             </div>
