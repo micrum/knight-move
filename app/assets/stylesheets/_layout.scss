@@ -27,6 +27,10 @@ header {
 
 .site-wrapper {
   margin-top: $top-space*2;
+
+  @media (max-width: $small-screen-max) {
+    margin-top: $top-space*2 +30px; //fix rails rumble banner overlay
+  }
 }
 
 
@@ -40,7 +44,7 @@ header {
 
 .home-link {
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 1.7em;
   color: $link-color;
   text-decoration: none;
   font-family: 'GlasoorFF4F', sans-serif;
@@ -61,7 +65,7 @@ header {
     position: absolute;
 
     &-left {
-      top: 0;
+      top: 30px;
     }
 
     &-right {

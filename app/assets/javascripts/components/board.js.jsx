@@ -4,7 +4,7 @@ var CELL_COUNT = 100;
 var Board = React.createClass({
   getInitialState: function() {
     return {
-      currentScore: 0,
+      currentScore: 1,
       currentTime: 0,
       userUUID: null,
       gameUUID: null
