@@ -12,8 +12,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -27,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Ruby gem for automatically transforming JSX and using React in Rails.
 gem 'react-rails', '~> 1.4.0'
 
+# omniauth
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
@@ -35,8 +34,6 @@ gem 'omniauth-github'
 # TEMPLATES AND RENDERING
 # Slim templates generator
 gem 'slim-rails'
-# Creating navigations (with multiple levels)
-gem 'simple-navigation'
 
 
 # Heroku staff
