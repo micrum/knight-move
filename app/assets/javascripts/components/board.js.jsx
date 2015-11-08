@@ -24,17 +24,25 @@ var Board = React.createClass({
   },
 
   isGameOver: function(){
-    return this.state.currentScore === CELL_COUNT; // TODO: add to condition - or can't move anymore
+    var gameOver = this.state.possibleMovesCount === 0;
+    if(gameOver){
+      this.stopTime();
+    }
+    return gameOver;
   },
 
   startTime: function() {
     var self = this;
 
-    setInterval(function() {
+    this.state.timer = setInterval(function() {
       self.setState({currentTime: self.state.currentTime + 1});
     }, 1000);
 
     return true;
+  },
+
+  stopTime: function() {
+    clearInterval(this.state.timer);
   },
 
   renderPiece: function(key, x, y, knightOnCell) {
@@ -43,7 +51,13 @@ var Board = React.createClass({
 
     if(knightOnCell) {
       pieceClass += ' currentState';
+<<<<<<< HEAD
     } else if (!pieceMove && canMoveKnight(x,y)) {
+=======
+    } else {
+      if(!pieceMove && canMoveKnight(x,y)) {
+        this.state.possibleMovesCount += 1;
+>>>>>>> b-game-over
         pieceClass += ' possibleMove';
     } else if (pieceMove && !canMoveKnight(x,y)) {
         pieceClass += ' impossibleMove';
