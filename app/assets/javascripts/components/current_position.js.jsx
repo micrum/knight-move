@@ -35,12 +35,7 @@ var CurrentPosition = React.createClass({
   render: function () {
 
     return (
-
-      <div class="progress-bar-score">
-        <div className="text-center text-brand"> Your position: </div>
-        <div className="text-center text-brand"> {this.state.position} </div>
-      </div>
-
+        <div className="progress-bar-score-item"> Your rank: {this.state.position}</div>
     );
   }
 });

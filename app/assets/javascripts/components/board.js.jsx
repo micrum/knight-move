@@ -57,7 +57,7 @@ var Board = React.createClass({
                          currentScore={ this.state.currentScore }
                          currentTime={ this.state.currentTime }>
             </ProgressBar>
-            <div style = {{ maxWidth: '640px', margin: '30px auto', padding: '15px' }}>
+            <div style = {{ maxWidth: '640px', margin: '0 auto', padding: '15px' }}>
                 { squares }
             </div>
         </div>
@@ -65,6 +65,7 @@ var Board = React.createClass({
   },
 
   handleSquareClick: function(x, y) {
+    this.startTime();
     if (canMoveKnight(x, y)) {
       this.scoreUp();
       moveKnight(x, y);

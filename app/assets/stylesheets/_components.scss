@@ -3,14 +3,17 @@
   max-width: $board-height;
   margin: 0 auto;
   height: $progress-bar-height;
+  padding: 0 15px;
 }
 .progress-bar-wrapper {
-  display: inline-block;
-  width: 80%;
+  padding: 0 10px;
 }
-.progress-bar-score {
-  float: right;
-  width: 20%;
+.progress-bar-score-item {
+  width: 33%;
+  float: left;
+  text-align: center;
+  color: $brand-color;
+  padding-bottom: 10px;
 }
 .progress {
   width: 100%;
