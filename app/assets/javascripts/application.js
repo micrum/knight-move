@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery_cookie
 //= require react
 //= require react_ujs
 //= require components

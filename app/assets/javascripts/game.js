@@ -43,3 +43,33 @@ var canMoveKnight = function(toX, toY) {
 var isFirstStep = function() {
   return (knightPositions.length == 1);
 };
+
+
+//----------- API ------------
+
+function createGame() {
+  var deferred = $.Deferred();
+  var url = '/games';
+
+  $.post(url, function (result) {
+
+    if (!result || !result['game_uuid']) {
+      return;
+    }
+
+    deferred.resolve(result['game_uuid']);
+  });
+
+  return deferred.promise();
+}
+
+var getGameUUID = function() {
+  var uuid = $.cookie('game_uuid');
+  if (typeof uuid == 'undefined') {
+    createUser().done( function(data) {
+      $.cookie('game_uuid', data);
+      uuid = data;
+    })
+  }
+  return uuid;
+};

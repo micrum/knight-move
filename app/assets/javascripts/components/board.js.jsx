@@ -96,6 +96,8 @@ var Board = React.createClass({
   handleSquareClick: function(x, y) {
     if (isFirstStep()){
       this.startTime();
+      this.state.user_uuid = getUserUUID();
+      this.state.game_uuid = getGameUUID();
     }
     if (canMoveKnight(x, y)) {
       this.scoreUp();
