@@ -21,11 +21,12 @@ var Board = React.createClass({
     var x = i % 8,
         y = Math.floor(i / 8),
         knightX = this.props.knightPosition[0],
-        knightY = this.props.knightPosition[1], 
+        knightY = this.props.knightPosition[1],
         piece = (x === knightX && y === knightY) ? <Knight /> : null;
 
     return (
-      <div key={i} onClick={this.scoreUp} style={{ width: '12.5%', paddingBottom: '12.5%', height: '0',
+      <div key={i} onClick={ this.handleSquareClick.bind(this, x, y) }
+           style={{ width: '12.5%', paddingBottom: '12.5%', height: '0',
                             maxWidth: '64px', float: 'left', backgroundColor: '#FFD428',
                             borderRadius: '50%' }}>
           { piece }
@@ -47,5 +48,10 @@ var Board = React.createClass({
         { squares }
       </div>
     );
-  }
+  },
+
+  handleSquareClick: function(x, y) {
+    this.scoreUp();
+    moveKnight(x, y);
+  },
 });
