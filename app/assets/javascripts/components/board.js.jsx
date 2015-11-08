@@ -23,7 +23,7 @@ var Board = React.createClass({
   },
 
   isGameOver: function(){
-    return this.state.currentScore === CELL_COUNT; // TODO: add to condition - or can't move anymore
+    return this.state.possibleMovesCount > 0 ? false : true
   },
 
   startTime: function() {
@@ -44,6 +44,7 @@ var Board = React.createClass({
       pieceClass += ' currentState';
     } else {
       if(!pieceMove && canMoveKnight(x,y)) {
+        this.state.possibleMovesCount += 1;
         pieceClass += ' possibleMove';
       }
     }
@@ -70,6 +71,7 @@ var Board = React.createClass({
 
   render: function() {
     var squares = [];
+    this.state.possibleMovesCount = 0;
 
     for(var i = 0; i < CELL_COUNT; i++) {
       squares.push(this.renderSquare(i));
