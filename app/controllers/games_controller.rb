@@ -25,7 +25,7 @@ class GamesController < ApplicationController
 
     if @current_game.update_attributes(time: time,
                                        steps: steps,
-                                       score: steps.size - 1)
+                                       score: steps.size)
       render status: 200, json: @controller.to_json
     else
       render status: 406, json: @controller.to_json
