@@ -1,0 +1,94 @@
+// PROGRESS BAR CONTAINER
+.progress-bar-container {
+  max-width: 512px;
+  margin: 0 auto;
+  height: $progress-bar-height;
+}
+.progress-bar-wrapper {
+  display: inline-block;
+  width: 80%;
+}
+.progress-bar-score {
+  float: right;
+  width: 20%;
+}
+.progress {
+  width: 100%;
+  height: 10px;
+}
+.progress-wrap {
+  margin: 20px 0;
+  background: #e80d73;
+  border: 2px solid #871d5d;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  .progress-bar {
+    background: #871d5d;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+}
+
+
+// POPUP
+// TODO: fix double rendering of popup
+.rules .popup {
+  display: none !important;
+}
+
+.popup {
+  border: 5px solid #d41356;
+  border-radius: 10px;
+  background: #fed428;
+  position: absolute;
+  width: 30%;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 20px 40px;
+  -webkit-box-shadow:  0px 0px 0px 9999px rgba(0, 0, 0, 0.6);
+  box-shadow:  0px 0px 0px 9999px rgba(0, 0, 0, 0.6);
+
+  h3 {
+    color: $brand-color;
+    text-align: center;
+  }
+  a {
+    display: block;
+    padding: 10px;
+    background-color: $brand-color;
+    color: #fed428;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      color: #fed428;
+    }
+  }
+}
+
+
+// RULES
+.rulesLinkBlock {
+  @media (min-width: $small-screen) {
+    margin-top: 2em;
+  }
+}
+
+.rulesLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+
+// SCOREBOARD
+.scoreboard ol {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+}

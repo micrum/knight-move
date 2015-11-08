@@ -25,6 +25,10 @@ header {
   height: 512px + $progress-bar-height;
 }
 
+.site-wrapper {
+  margin-top: $top-space*2;
+}
+
 
 // navigation
 .navbar {
@@ -47,11 +51,6 @@ header {
 }
 
 
-.stub-image {
-  max-height: 560px;
-}
-
-
 .sidebar {
   position: fixed;
 
@@ -63,6 +62,10 @@ header {
 
     &-left {
       top: 0;
+    }
+
+    &-right {
+      margin-bottom: 40px;
     }
   }
 
@@ -80,14 +83,4 @@ header {
       right: $sidebar-right-space;
     }
   }
-}
-
-.site-wrapper {
-  margin-top: $top-space*2;
-}
-
-
-.scoreboard ol {
-  margin: 0;
-  padding: 0;
 }

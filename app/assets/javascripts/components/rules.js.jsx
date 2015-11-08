@@ -24,7 +24,7 @@ var Rules = React.createClass({
                     <div className="popup" style={{display: visible}}>
                         <h3>Rules</h3>
 
-                        <p>To solve the puzzle, the user must go through the
+                        <p className="text-brand">To solve the puzzle, the user must go through the
                             horse (the letter L) in all 64 cells are usually
                             chessboard and each cell can visit only once.</p>
                         <a onClick={this.closePopup}>Got it!</a>

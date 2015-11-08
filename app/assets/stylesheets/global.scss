@@ -9,6 +9,10 @@ h1 {
   font-family: 'GlasoorFF4F', sans-serif;
 }
 
+h1, h2 {
+  color: $brand-color;
+}
+
 h2, h3 {
   font-weight: bold;
 }
