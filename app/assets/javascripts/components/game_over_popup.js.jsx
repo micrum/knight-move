@@ -26,7 +26,7 @@ var GameOverPopup = React.createClass({
     var options = {
       text: text,
       url: url,
-      hashtags: 'railsrumbie'
+      hashtags: 'railsrumble'
     };
     var result = Object.keys(options).map(function (item) {
       return item + '=' + encodeURI(options[item]);
