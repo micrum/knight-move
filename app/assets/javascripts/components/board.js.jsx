@@ -96,7 +96,8 @@ var Board = React.createClass({
         <GameOverPopup time={ this.state.currentTime }
                        score={ this.state.currentScore}
                        total={ CELL_COUNT }
-                       opened={this.isGameOver()}>
+                       opened={this.isGameOver()}
+                       currentRank={ this.state.currentRank}>
         </GameOverPopup>
 
         <div style={{ maxWidth: '640px', margin: '0 auto', padding: '40px 15px' }}>

@@ -1,6 +1,6 @@
 var NameInput = React.createClass({
   getInitialState: function () {
-    return {name: 'Your Name'};
+    return {name: ''};
   },
 
   componentDidMount: function () {
@@ -20,7 +20,7 @@ var NameInput = React.createClass({
   render: function () {
     return (
       <div className="name-input-container">
-        <input type="text" value={this.state.name} onChange={this.handleChange}/>
+        <input type="text" value={this.state.name} onChange={this.handleChange} placeholder="Your Name"/>
       </div>
     )
   }
