@@ -56,5 +56,5 @@ var Board = React.createClass({
       this.scoreUp();
       moveKnight(x, y);
     }
-  },
+  }
 });
