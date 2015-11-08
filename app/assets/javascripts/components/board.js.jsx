@@ -52,9 +52,10 @@ var Board = React.createClass({
     if(knightOnCell) {
       pieceClass += ' currentState';
     } else if (!pieceMove && canMoveKnight(x,y)) {
-      pieceClass += ' possibleMove';
+        this.state.possibleMovesCount = 1;
+        pieceClass += ' possibleMove';
     } else if (pieceMove && !canMoveKnight(x,y)) {
-      pieceClass += ' impossibleMove';
+        pieceClass += ' impossibleMove';
     }
 
     return (
@@ -79,6 +80,7 @@ var Board = React.createClass({
 
   render: function() {
     var squares = [];
+    this.state.possibleMovesCount = 0;
 
     for(var i = 0; i < CELL_COUNT; i++) {
       squares.push(this.renderSquare(i));
@@ -91,7 +93,7 @@ var Board = React.createClass({
                      currentTime={ this.state.currentTime }
                      currentRank={ this.state.currentRank}>
         </ProgressBar>
-        <GameOverPopup time={ this.state.gameTime }
+        <GameOverPopup time={ this.state.currentTime }
                        score={ this.state.currentScore}
                        total={ CELL_COUNT }
                        opened={this.isGameOver()}>
