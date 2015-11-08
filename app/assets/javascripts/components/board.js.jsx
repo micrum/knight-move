@@ -51,7 +51,9 @@ var Board = React.createClass({
   },
 
   handleSquareClick: function(x, y) {
-    this.scoreUp();
-    moveKnight(x, y);
+    if (canMoveKnight(x, y)) {
+      this.scoreUp();
+      moveKnight(x, y);
+    }
   },
 });
