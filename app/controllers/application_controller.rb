@@ -3,7 +3,15 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :exception
 
+  before_filter :set_up_image
+
   private
+
+  def set_up_image
+    if params[:screenshot]
+      render 'pages/image', layout: false
+    end
+  end
 
   def set_up_user
     uuid = params[:uuid] || request.cookies['user_uuid']
