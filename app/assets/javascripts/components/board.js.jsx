@@ -3,7 +3,10 @@ var CELL_COUNT = 64;
 
 var Board = React.createClass({
   getInitialState: function() {
-    return {currentScore: 0};
+    return {
+      gameTime: "2:15",
+      currentScore: 63
+    }; // fetch from props?
   },
 
   propTypes: {
@@ -15,6 +18,10 @@ var Board = React.createClass({
   scoreUp: function(e){
     this.setState({currentScore: this.state.currentScore + 1});
     return true;
+  },
+
+  isGameOver: function(){
+    return this.state.currentScore === CELL_COUNT; // TODO: add to condition - or can't move anymore
   },
 
   renderSquare: function(i) {
@@ -44,6 +51,7 @@ var Board = React.createClass({
       <div style = {{ maxWidth: '512px', margin: '0 auto' }}>
         <Rules></Rules>
         <ProgressBar total={ CELL_COUNT } current={ this.state.currentScore }></ProgressBar>
+        <GameOverPopup time={ this.state.gameTime } score={ this.state.currentScore} total={ CELL_COUNT } opened={this.isGameOver()}></GameOverPopup>
         { squares }
       </div>
     );

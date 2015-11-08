@@ -1,7 +1,7 @@
 var ProgressBar = React.createClass({
   propTypes: {
-    current: React.PropTypes.node,
-    total: React.PropTypes.node
+    current: React.PropTypes.number,
+    total: React.PropTypes.number
   },
 
   componentDidMount: function () {
