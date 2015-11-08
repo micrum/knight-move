@@ -16,10 +16,10 @@ html
             = link_to 'Knight Move', '/', class: 'home-link'
           .nav
             = react_component('Rules')
-            p.mr Log in with:
+            p.mr Log in:
             = link_to (image_tag 'facebook_icon.svg', class: 'small-icon'), '/auth/github'
             = link_to (image_tag 'github_icon.svg', class: 'small-icon'), '/auth/facebook'
-            p.mr Or type your name here:
+            p.mr Or type your name:
             = react_component('NameInput')
       .page-content#root
         = yield
