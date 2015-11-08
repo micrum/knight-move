@@ -1,5 +1,9 @@
 // NAME INPUT
-.name-input-container {
+.name-input-container input {
+  background-color: $brand-dark;
+  border: none;
+  height: 30px;
+  color: $text-color;
 }
 
 // PROGRESS BAR CONTAINER
