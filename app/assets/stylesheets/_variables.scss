@@ -6,9 +6,11 @@ $white: white;
 
 
 $sidebar-width: 10%;
-$sidebar-right-space: 5%;
+$sidebar-right-space: 3%;
 $progress-bar-height: 50px;
 $top-space: 40px;
+$board-height: 640px;
 
 
-$small-screen: 1024px;
+$small-screen: 1080px;
+$small-screen-max: $small-screen - 1px;

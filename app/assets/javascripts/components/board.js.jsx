@@ -1,5 +1,5 @@
 var PropTypes = React.PropTypes;
-var CELL_COUNT = 64;
+var CELL_COUNT = 100;
 
 var Board = React.createClass({
   getInitialState: function() {
@@ -19,14 +19,14 @@ var Board = React.createClass({
 
   renderSquare: function(i) {
     var x = i % 8,
-        y = Math.floor(i / 8),
+        y = Math.floor(i / 10),
         knightX = this.props.knightPosition[0],
         knightY = this.props.knightPosition[1],
         piece = (x === knightX && y === knightY) ? <Knight /> : null;
 
     return (
       <div key={i} onClick={ this.handleSquareClick.bind(this, x, y) }
-           style={{ width: '12.5%', paddingBottom: '12.5%', height: '0',
+           style={{ width: '10%', paddingBottom: '10%', height: '0',
                             maxWidth: '64px', float: 'left', backgroundColor: '#FFD428',
                             borderRadius: '50%' }}>
           { piece }
@@ -44,7 +44,7 @@ var Board = React.createClass({
     return (
         <div>
             <ProgressBar total={ CELL_COUNT } current={ this.state.currentScore }></ProgressBar>
-            <div style = {{ maxWidth: '512px', margin: '0 auto' }}>
+            <div style = {{ maxWidth: '640px', margin: '0 auto' }}>
                 { squares }
             </div>
         </div>

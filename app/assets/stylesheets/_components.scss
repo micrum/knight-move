@@ -1,6 +1,6 @@
 // PROGRESS BAR CONTAINER
 .progress-bar-container {
-  max-width: 512px;
+  max-width: $board-height;
   margin: 0 auto;
   height: $progress-bar-height;
 }
