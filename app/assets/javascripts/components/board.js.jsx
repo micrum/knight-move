@@ -1,11 +1,20 @@
 var PropTypes = React.PropTypes;
+var CELL_COUNT = 64;
 
 var Board = React.createClass({
+  getInitialState: function() {
+    return {currentScore: 0};
+  },
 
   propTypes: {
     knightPosition: PropTypes.arrayOf(
       PropTypes.number.isRequired
     ).isRequired
+  },
+
+  scoreUp: function(e){
+    this.setState({currentScore: this.state.currentScore + 1});
+    return true;
   },
 
   renderSquare: function(i) {
@@ -16,7 +25,7 @@ var Board = React.createClass({
         piece = (x === knightX && y === knightY) ? <Knight /> : null;
 
     return (
-      <div key={i} style={{ width: '12.5%', paddingBottom: '12.5%', height: '0',
+      <div key={i} onClick={this.scoreUp} style={{ width: '12.5%', paddingBottom: '12.5%', height: '0',
                             maxWidth: '64px', float: 'left', backgroundColor: '#FFD428',
                             borderRadius: '50%' }}>
           { piece }
@@ -26,12 +35,15 @@ var Board = React.createClass({
 
   render: function() {
     var squares = [];
-    for(var i = 0; i < 64; i++) {
+
+    for(var i = 0; i < CELL_COUNT; i++) {
       squares.push(this.renderSquare(i));
     }
+
     return (
       <div style = {{ maxWidth: '512px', margin: '0 auto' }}>
         <Rules></Rules>
+        <ProgressBar total={ CELL_COUNT } current={ this.state.currentScore }></ProgressBar>
         { squares }
       </div>
     );
