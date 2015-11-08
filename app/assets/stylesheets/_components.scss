@@ -68,9 +68,26 @@
       color: #fed428;
     }
   }
-  a.social-button {
-    display: inline-block;
-    background-color: #e50e73;
+  p {
+    color: #2a1c7d;
+  }
+  .social-buttons{
+    margin-top: 10px;
+    text-align: center;
+
+    a.social-button {
+      width: 40px;
+      height: 40px;
+      margin-left: 10px;
+      display: inline-block;
+      border-radius: 50%;
+      background-color: #e50e73;
+      line-height: 40px;
+      color: #fed428;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+    }
   }
 }
 
