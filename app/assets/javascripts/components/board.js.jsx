@@ -18,7 +18,7 @@ var Board = React.createClass({
   },
 
   renderSquare: function(i) {
-    var x = i % 8,
+    var x = i % 10,
         y = Math.floor(i / 10),
         knightX = this.props.knightPosition[0],
         knightY = this.props.knightPosition[1],
@@ -44,7 +44,7 @@ var Board = React.createClass({
     return (
         <div>
             <ProgressBar total={ CELL_COUNT } current={ this.state.currentScore }></ProgressBar>
-            <div style = {{ maxWidth: '640px', margin: '0 auto' }}>
+            <div style = {{ maxWidth: '640px', margin: '0 auto', padding: '15px' }}>
                 { squares }
             </div>
         </div>

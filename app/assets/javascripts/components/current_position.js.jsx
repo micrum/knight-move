@@ -18,7 +18,7 @@ var CurrentPosition = React.createClass({
   getPosition: function () {
     var deferred = $.Deferred();
     // TODO Use uuid of current game
-    var url = '/position?game_uuid=' + 'e1705d66-49f8-432f-a14b-4aaa8f9594af';
+    var url = '/position?game_uuid=' + 'd52822fa-f012-4d95-af91-4a27ccded167';
 
     $.getJSON(url, function (result) {
 
