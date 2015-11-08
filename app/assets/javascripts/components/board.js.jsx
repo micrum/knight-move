@@ -23,17 +23,25 @@ var Board = React.createClass({
   },
 
   isGameOver: function(){
-    return this.state.possibleMovesCount > 0 ? false : true
+    var gameOver = this.state.possibleMovesCount === 0;
+    if(gameOver){
+      this.stopTime();
+    }
+    return gameOver;
   },
 
   startTime: function() {
     var self = this;
 
-    setInterval(function() {
+    this.state.timer = setInterval(function() {
       self.setState({currentTime: self.state.currentTime + 1});
     }, 1000);
 
     return true;
+  },
+
+  stopTime: function() {
+    clearInterval(this.state.timer);
   },
 
   renderPiece: function(key, x, y, knightOnCell) {
@@ -83,10 +91,10 @@ var Board = React.createClass({
                          currentScore={ this.state.currentScore }
                          currentTime={ this.state.currentTime }>
             </ProgressBar>
-            <GameOverPopup time={ this.state.gameTime }
-                           score={ this.state.currentScore}
+            <GameOverPopup time={ this.state.currentTime }
+                           score={ this.state.currentScore }
                            total={ CELL_COUNT }
-                           opened={this.isGameOver()}>
+                           opened={ this.isGameOver() }>
             </GameOverPopup>
             <div style = {{ maxWidth: '640px', margin: '0 auto', padding: '15px' }}>
                 { squares }
