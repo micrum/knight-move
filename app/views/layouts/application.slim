@@ -12,6 +12,11 @@ html
       .sidebar.sidebar-left
         .navbar
           = link_to 'Knight Move', '/', class: 'home-link'
+          .login
+            p
+              = link_to 'Github', '/auth/github'
+            p
+              = link_to 'Facebook', '/auth/facebook'
           = react_component('Rules')
       .page-content#root
         = yield
