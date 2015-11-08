@@ -40,7 +40,7 @@ class Game < ActiveRecord::Base
 
   def position
     uuids = Game.where('score >= ?', score).order('score DESC, time ASC').select('uuid')
-    uuids.index { |u| u.uuid == p.uuid }
+    uuids.index { |u| u.uuid == uuid }
   end
 
 
