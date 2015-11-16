@@ -27,6 +27,6 @@ a {
   text-decoration: none;
 }
 
-::-webkit-input-placeholder {color: $text-color; opacity: .8}
-::-moz-placeholder          {color: $text-color; opacity: .8}
-:-ms-input-placeholder      {color: $text-color; opacity: .8}
+::-webkit-input-placeholder {color: $brand-color; opacity: .8}
+::-moz-placeholder          {color: $brand-color; opacity: .8}
+:-ms-input-placeholder      {color: $brand-color; opacity: .8}

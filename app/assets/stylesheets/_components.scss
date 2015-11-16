@@ -81,13 +81,15 @@
     color: $brand-color;
     text-align: center;
   }
-  a.main-button {
+
+  .main-button {
     display: block;
     padding: 10px;
     background-color: #e50e73;
     color: #fed428;
     text-align: center;
     cursor: pointer;
+    border: none;
 
     &:hover {
       color: #fed428;
