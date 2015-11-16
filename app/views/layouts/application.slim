@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title The Knight Move Game
+    title The Knight's Move Game
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
@@ -12,7 +12,7 @@ html
       .sidebar.sidebar-left
         .navbar
           .pb
-            = link_to 'Knight Move', '/', class: 'home-link'
+            = link_to 'Knight's Move', '/', class: 'home-link'
           .nav
             = react_component('Rules')
             .mr
