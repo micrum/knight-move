@@ -7,7 +7,14 @@ var GameOverPopup = React.createClass({
     },
 
     getInitialState: function () {
-        return {opened: false};
+        return {
+            opened: false,
+            email: ''
+        };
+    },
+
+    handleChange: function(event) {
+        this.setState({email: event.target.value});
     },
 
     closePopup: function (e) {
@@ -46,7 +53,7 @@ var GameOverPopup = React.createClass({
         var visible = this.props.opened ? 'block' : 'none';
         var title = this.props.total === this.props.score ? 'You Win!' : 'Defeat';
         var twitterLink = "https://twitter.com/intent/tweet?" + this.getTwitterOptions();
-
+        var email = this.state.email;
         var renderMailchimpForm = function () {
             return {__html: "<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>"};
         };
@@ -69,7 +76,7 @@ var GameOverPopup = React.createClass({
                                     <p>Subscribe to get notified on updates and releases. Be first who get Knight's Move mobile app!</p>
                                     <div className="mc-field-group" style={{display: 'inline-block'}}>
                                         <label htmlFor="mce-EMAIL">Email Address</label>
-                                        <input style={{height: '30px', marginRight: '5px', textAlign: 'center'}} type="email" value="" name="EMAIL" className="required email" placeholder="your email" id="mce-EMAIL"/>
+                                        <input style={{height: '30px', marginRight: '5px', textAlign: 'center'}} type="email" value={email} onChange={this.handleChange}  name="EMAIL" className="required email" placeholder="your email" id="mce-EMAIL"/>
                                     </div>
                                     <div className="clear" style={{display: 'inline-block'}}>
                                         <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button main-button"/>
