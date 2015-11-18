@@ -18,10 +18,11 @@ class Game < ActiveRecord::Base
 
 
   def position
-    uuids = Game.joins(:user).where('score >= ?', score).where("users.name <> ''").where('games.created_at > ?', Date.today - 1).order('score DESC, time ASC').select('uuid')
-    rank = uuids.index { |u| u.uuid == uuid }
-    rank ||= 0
-    rank + 1
+    user_ids = User.with_name.pluck(:id)
+    uuids = Game.where('score >= ?', score).where("user_id in (?) OR id = ?", user_ids, id)
+                .where('created_at > ?', Date.today - 1)
+                .order('score DESC, time ASC').pluck(:uuid)
+    (uuids.index(uuid) || 0) + 1
   end
 
 
