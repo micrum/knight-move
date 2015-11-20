@@ -1,6 +1,7 @@
 var knightPosition = [0, 0];
 var knightPositions = ['0,0'];
 var observer = null;
+var facebookID = <%= ENV['FACEBOOK_KEY'] %>;
 
 function emitChange() {
   observer(knightPosition);
