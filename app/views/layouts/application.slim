@@ -19,6 +19,9 @@ html
               = link_to 'New Game', '/', class: 'new-game-button'
             p.mr Type your name:
             = react_component('NameInput')
+            p.social-icons
+              = link_to image_tag('github_icon', size: '30x30'), '/auth/github', class: 'github-oauth oauth-link'
+              = link_to image_tag('facebook_icon', size: '30x30'), '/auth/facebook', class: 'facebook-oauth oauth-link'
       .page-content#root
         = yield
       .sidebar.sidebar-right
