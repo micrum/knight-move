@@ -26,8 +26,8 @@ var GameOverPopup = React.createClass({
     },
 
     getTwitterOptions: function () {
-        var winMsg = 'Hey! I won The Knight Move! You must to try it';
-        var defeatMsg = 'Hey! I got ' + this.props.score + ' point at Knight Move. ';
+        var winMsg = 'Hey! I won The Knight Move! You must try it now';
+        var defeatMsg = 'Hey! I got ' + this.props.score + ' points at Knight Move. ';
         var text = this.isWinner() ? winMsg : defeatMsg;
         var url = 'http://knightmove.r15.railsrumble.com/';
         var options = {
