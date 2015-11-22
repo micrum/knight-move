@@ -26,8 +26,8 @@ var GameOverPopup = React.createClass({
     },
 
     getTwitterOptions: function () {
-        var winMsg = 'Hey! I won The Knight Move! You must to try it';
-        var defeatMsg = 'Hey! I got ' + this.props.score + ' point at Knight Move. ';
+        var winMsg = 'Hey! I won The Knight Move! You must try it now';
+        var defeatMsg = 'Hey! I got ' + this.props.score + ' points at Knight Move. ';
         var text = this.isWinner() ? winMsg : defeatMsg;
         var url = 'http://knightmove.r15.railsrumble.com/';
         var options = {
@@ -41,18 +41,29 @@ var GameOverPopup = React.createClass({
         return result;
     },
 
-    shareFacebook: function () {
-        FB.ui({
-            method: 'share',
-            href: 'http://knightmove.r15.railsrumble.com/'
-        }, function (response) {
-        });
+    getFacebookOptions: function(){
+        var winMsg = 'Hey! I won The Knight Move! You must try it now';
+        var defeatMsg = 'Hey! I got ' + this.props.score + ' points at Knight Move. ';
+        var text = this.isWinner() ? winMsg : defeatMsg;
+        var url = 'http://knightmove.r15.railsrumble.com/';
+        var options = {
+            display: 'popup',
+            caption: text,
+            href: url,
+            app_id: facebookID,
+            redirect_uri: url
+        };
+        var result = Object.keys(options).map(function (item) {
+            return item + '=' + encodeURI(options[item]);
+        }).join('&');
+        return result;
     },
 
     render: function () {
         var visible = this.props.opened ? 'block' : 'none';
         var title = this.props.total === this.props.score ? 'You Win!' : 'Defeat';
         var twitterLink = "https://twitter.com/intent/tweet?" + this.getTwitterOptions();
+        var facebookLink = "https://www.facebook.com/dialog/share?" + this.getFacebookOptions();
         var email = this.state.email;
         var renderMailchimpForm = function () {
             return {__html: "<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>"};
@@ -97,6 +108,8 @@ var GameOverPopup = React.createClass({
                         <div className="social-buttons">
                             <a className="twitter-share-button social-button"
                                href={twitterLink}></a>
+                            <a className="facebook-share-button social-button"
+                               href={facebookLink}></a>
                         </div>
                     </div>
                 </RenderInBody>

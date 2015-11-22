@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'users', to: 'users#show'
   put 'users', to: 'users#update'
 
-  get '/auth/:provider/callback', to: 'users#create'
+  get '/auth/:provider/callback', to: 'users#external_auth'
 
   get 'about', to: 'pages#about'
 

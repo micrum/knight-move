@@ -5,24 +5,16 @@ class User < ActiveRecord::Base
 
   class << self
     def find_or_update_from_oauth(auth_hash)
-      user = where(uid: auth_hash[:uid]).first
-      user ||= where(name: auth_hash[:name]).first
-      user ||= where(email: auth_hash[:email]).first
-      if user.present?
-        if user.provider != auth_hash[:provider]
-          user.provider = auth_hash[:provider]
-          user.uid = auth_hash[:uid]
-          user.save
-        end
-      else
-        user = User.find_by_uuid(auth_hash[:uuid])
+      user = User.find_by_uuid(auth_hash[:uuid])
+      user ||= where(uid: auth_hash[:uid]).first
+      user.name  ||= auth_hash[:info][:name]
+      user.email ||= auth_hash[:info][:email]
+      user.uid   ||= auth_hash[:uid]
+      if user.provider != auth_hash[:provider]
+        user.provider = auth_hash[:provider]
         user.uid = auth_hash[:uid]
-        user.name = auth_hash[:name]
-        user.email = auth_hash[:email]
-        user.email = auth_hash[:provider]
         user.save
       end
-      user
     end
   end
 end

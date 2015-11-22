@@ -19,7 +19,17 @@ html
               = link_to 'New Game', '/', class: 'new-game-button'
             p.mr Type your name:
             = react_component('NameInput')
+            p.social-icons
+              = link_to image_tag('github_icon', size: '30x30'), '/auth/github', class: 'github-oauth oauth-link'
+              = link_to image_tag('facebook_icon', size: '30x30'), '/auth/facebook', class: 'facebook-oauth oauth-link'
       .page-content#root
         = yield
       .sidebar.sidebar-right
         = react_component('Scoreboard')
+    javascript:
+      var rumbleBannerBackgroundColor, rumbleBannerTextColor, rumbleBannerLinkColor, rumbleBannerPlacement;
+      rumbleBannerBackgroundColor = "#250a40";
+      rumbleBannerTextColor = "#FFD428";
+      rumbleBannerLinkColor = "#E50E73";
+      rumbleBannerPlacement = "top"; // Optionally replace with "bottom".
+    = javascript_include_tag 'https://d4nnn7wspfa3h.cloudfront.net/banner-2015.js'
