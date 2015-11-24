@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :games
 
+  scope :with_name, -> { where("name <> ''") }
+
   validates_length_of :name, maximum: 50
 
   class << self
